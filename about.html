@@ -226,6 +226,7 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     border-radius: 999px;
+    white-space: nowrap;
     transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
     box-shadow: 0 10px 30px rgba(236, 122, 121, 0.4), 0 0 0 0 rgba(236, 122, 121, 0.35);
     animation: pulse 2.4s ease-in-out infinite;
@@ -673,24 +674,129 @@
 
   /* ====== RESPONSIVE ====== */
   @media (max-width: 900px) {
-    .topbar { padding: 12px 20px; top: 12px; left: 12px; right: 12px; }
-    .topbar.scrolled { padding: 10px 20px; top: 10px; }
-    nav ul { gap: 18px; }
-    nav a { font-size: 12px; letter-spacing: 0.05em; }
+    .topbar {
+      padding: 8px 16px;
+      top: 12px;
+      left: 12px;
+      right: 12px;
+      border-radius: 999px;
+      flex-wrap: nowrap;
+    }
+    .topbar.scrolled { padding: 8px 16px; top: 10px; }
+    .logo { height: 56px; }
+    .topbar.scrolled .logo { height: 48px; }
+    /* Hide desktop nav, show hamburger */
+    nav { display: none; }
+    .hamburger { display: block; }
     .hero { padding-top: 130px; padding-bottom: 60px; min-height: 680px; }
     .hero-content { padding: 0 24px; }
     .services, .reviews, .faq { padding: 90px 24px; }
     .services-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
     .reviews-grid { column-count: 2; }
-    .logo { height: 68px; }
   }
+
+  /* ====== HAMBURGER MENU (mobile only) ====== */
+  .hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    z-index: 102;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #1e4f4e;
+    margin: 5px auto;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+  .hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 12px;
+    right: 12px;
+    background: rgba(244, 237, 228, 0.97);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 12px 40px rgba(30, 79, 78, 0.18);
+    z-index: 99;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+  }
+  .mobile-menu.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .mobile-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 0;
+    margin: 0;
+  }
+  .mobile-menu a {
+    display: block;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: #1e4f4e;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 12px;
+    transition: background 0.2s ease;
+  }
+  .mobile-menu a:hover,
+  .mobile-menu a:active {
+    background: rgba(205, 216, 212, 0.5);
+  }
+
+  @media (max-width: 720px) {
+    .logo { height: 48px; }
+    .topbar.scrolled .logo { height: 44px; }
+    .topbar { padding: 8px 14px; }
+    .hero { padding-top: 110px; }
+  }
+
   @media (max-width: 560px) {
-    nav ul { gap: 12px; }
-    nav a { font-size: 10px; }
-    .hero { padding-top: 120px; }
+    .topbar { padding: 6px 12px; top: 10px; left: 10px; right: 10px; }
+    .logo { height: 44px; }
+    .topbar.scrolled .logo { height: 40px; }
+    .mobile-menu { top: 70px; left: 10px; right: 10px; }
+    .hero { padding-top: 100px; min-height: 600px; }
+    .hero-content { padding: 0 20px; }
+    .hero h1 { font-size: clamp(36px, 9vw, 56px); margin-bottom: 18px; }
+    .hero p { font-size: 16px; margin-bottom: 28px; }
+    .hero-eyebrow { font-size: 16px; margin-bottom: 12px; }
+    .hero-rating { padding: 8px 14px; margin-bottom: 22px; }
+    .hero-rating .rating-text { font-size: 12px; }
+    .cta-btn { padding: 16px 28px; font-size: 13px; }
     .services-grid { grid-template-columns: 1fr; }
     .reviews-grid { column-count: 1; }
-    .hero-eyebrow { font-size: 18px; }
+    .services, .reviews, .faq { padding: 70px 18px; }
   }
 
   /* Scroll fade-in */
@@ -1075,7 +1181,7 @@
   }
 
   @media (max-width: 900px) {
-    .about-hero { padding: 160px 24px 80px; }
+    .about-hero { padding: 130px 24px 80px; }
     .our-story, .experience, .team-section, .closing-cta { padding: 90px 24px; }
     .story-inner { grid-template-columns: 1fr; gap: 50px; }
     .experience-grid { grid-template-columns: 1fr; }
@@ -1088,7 +1194,12 @@
     .stat-divider { display: none; }
     .stat-num { font-size: 38px; }
   }
+  @media (max-width: 720px) {
+    .about-hero { padding: 110px 20px 60px; }
+  }
   @media (max-width: 560px) {
+    .about-hero { padding: 100px 18px 50px; }
+    .our-story, .experience, .team-section, .closing-cta { padding: 70px 18px; }
     .team-grid { grid-template-columns: 1fr; max-width: 280px; }
     .stats-inner { grid-template-columns: 1fr; gap: 30px; }
   }
@@ -1107,7 +1218,18 @@
       <li><a href="index.html#reviews">Reviews</a></li>
     </ul>
   </nav>
+  <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+<div class="mobile-menu" id="mobile-menu">
+  <ul>
+    <li><a href="index.html#contact">Call Us</a></li>
+    <li><a href="index.html#services">Our Services</a></li>
+    <li><a href="about.html" class="active">About Us</a></li>
+    <li><a href="index.html#reviews">Reviews</a></li>
+  </ul>
+</div>
 
 <!-- ABOUT HERO -->
 <section class="about-hero">
@@ -1257,7 +1379,7 @@
   <div class="closing-inner fade-up">
     <h2>Ready to see the <em>difference?</em></h2>
     <p>Book your first cleaning and see why Coy customers keep coming back season after season.</p>
-    <a href="index.html#quote" class="cta-btn">Get a Free Quote <span class="arrow">→</span></a>
+    <a href="quote.html" class="cta-btn">Get a Free Quote <span class="arrow">→</span></a>
   </div>
 </section>
 
@@ -1267,8 +1389,8 @@
   <div class="foot-links">
     <a href="index.html#services">Services</a>
     <a href="index.html#reviews">Reviews</a>
-    <a href="tel:5555555555">Call (555) 555-5555</a>
-    <a href="mailto:hello@coy.com">hello@coy.com</a>
+    <a href="tel:7739974886">Call (773) 997-4886</a>
+    <a href="mailto:coycleaning1@gmail.com">coycleaning1@gmail.com</a>
   </div>
   <p>© 2026 Coy Exterior Cleaning. All rights reserved.</p>
 </footer>
@@ -1299,7 +1421,7 @@
     const isMobile = /Android|iPhone|iPad|iPod|Mobile|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
                      || (window.matchMedia && window.matchMedia('(max-width: 768px)').matches);
     if (isMobile) {
-      callLink.setAttribute('href', 'tel:5555555555');
+      callLink.setAttribute('href', 'tel:7739974886');
     }
   }
 </script>
