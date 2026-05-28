@@ -226,7 +226,6 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     border-radius: 999px;
-    white-space: nowrap;
     transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
     box-shadow: 0 10px 30px rgba(236, 122, 121, 0.4), 0 0 0 0 rgba(236, 122, 121, 0.35);
     animation: pulse 2.4s ease-in-out infinite;
@@ -685,9 +684,9 @@
     .topbar.scrolled { padding: 8px 16px; top: 10px; }
     .logo { height: 56px; }
     .topbar.scrolled .logo { height: 48px; }
-    /* Hide desktop nav, show hamburger */
-    nav { display: none; }
-    .hamburger { display: block; }
+    nav ul { gap: 14px; }
+    nav a { font-size: 11px; letter-spacing: 0.04em; }
+    nav a.nav-cta { padding: 7px 14px; }
     .hero { padding-top: 130px; padding-bottom: 60px; min-height: 680px; }
     .hero-content { padding: 0 24px; }
     .services, .reviews, .faq { padding: 90px 24px; }
@@ -775,6 +774,9 @@
   }
 
   @media (max-width: 720px) {
+    /* Hide desktop nav, show hamburger */
+    nav { display: none; }
+    .hamburger { display: block; }
     .logo { height: 48px; }
     .topbar.scrolled .logo { height: 44px; }
     .topbar { padding: 8px 14px; }
