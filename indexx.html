@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Coy — Exterior Cleaning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage: #cdd8d4;
+    --sage-deep: #aabab3;
+    --navy: #2e706f;
+    --navy-deep: #1e4f4e;
+    --rose: #ec7a79;
+    --rose-soft: #fce5e4;
+    --cream: #f4ede4;
+    --ink: #1e4f4e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ====== TOP BAR ====== */
+  .topbar {
+    position: fixed;
+    top: 20px; left: 24px; right: 24px;
+    z-index: 100;
+    padding: 5px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(205, 216, 212, 0.45);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 999px;
+    transition: all 0.4s ease;
+  }
+
+  .topbar.scrolled {
+    background: rgba(244, 237, 228, 0.88);
+    padding: 5px 16px;
+    top: 14px;
+    box-shadow: 0 8px 30px rgba(30, 79, 78, 0.12);
+  }
+
+  .logo {
+    height: 48px;
+    transition: height 0.4s ease;
+  }
+  .topbar.scrolled .logo { height: 36px; }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 38px;
+  }
+  nav a {
+    text-decoration: none;
+    color: #1e4f4e;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    position: relative;
+    padding: 6px 0;
+    transition: color 0.3s;
+  }
+  nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 1px;
+    background: #1e4f4e;
+    transition: width 0.4s ease;
+  }
+  nav a:hover::after { width: 100%; }
+  nav a:hover { color: #1e4f4e; }
+
+  /* Highlighted Call Us nav link */
+  nav a.nav-cta {
+    background: #ec7a79;
+    color: #fff;
+    padding: 9px 20px;
+    border-radius: 999px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(236, 122, 121, 0.35);
+  }
+  nav a.nav-cta::after { display: none; }
+  nav a.nav-cta:hover {
+    background: #d05f5e;
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(236, 122, 121, 0.5);
+  }
+
+  /* Mobile-only Call Us pill, sits next to the hamburger */
+  .topbar-call-mobile {
+    display: none;
+    background: #ec7a79;
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 9px 18px;
+    border-radius: 999px;
+    margin-left: auto;
+    margin-right: 12px;
+    box-shadow: 0 4px 14px rgba(236, 122, 121, 0.35);
+    transition: all 0.3s ease;
+  }
+  .topbar-call-mobile:hover,
+  .topbar-call-mobile:active {
+    background: #d05f5e;
+    box-shadow: 0 6px 18px rgba(236, 122, 121, 0.5);
+  }
+
+  /* ====== HERO ====== */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: clamp(160px, 22vh, 280px);
+    padding-bottom: clamp(120px, 14vh, 160px);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(90deg, rgba(30, 79, 78, 0.75) 0%, rgba(30, 79, 78, 0.55) 30%, rgba(30, 79, 78, 0.15) 60%, rgba(30, 79, 78, 0.05) 100%),
+      url('images/hero.jpg');
+    background-size: cover;
+    background-position: 75% 35%;
+    transform: scale(1);
+  }
+
+  @keyframes slowZoom {
+    from { transform: scale(1.05); }
+    to { transform: scale(1.15); }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 48px 0 96px;
+    max-width: 640px;
+    color: var(--cream);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: rise 1.2s 0.3s ease forwards;
+  }
+
+  .hero-rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(30, 79, 78, 0.55);
+    backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 10px 18px;
+    border-radius: 999px;
+    margin-bottom: 32px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  }
+  .hero-rating .stars {
+    color: #fbbc05;
+    font-size: 16px;
+    letter-spacing: 2px;
+    line-height: 1;
+  }
+  .hero-rating .rating-text {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .hero-rating .google-g {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  @keyframes rise {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--rose);
+    margin-bottom: 16px;
+    letter-spacing: 0.02em;
+  }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(48px, 6.5vw, 88px);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--rose);
+  }
+
+  .hero p {
+    font-size: 18px;
+    font-weight: 300;
+    max-width: 480px;
+    margin-bottom: 40px;
+    color: rgba(244, 237, 228, 0.92);
+    line-height: 1.7;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 40px;
+    background: #ec7a79;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    white-space: nowrap;
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow: 0 10px 30px rgba(236, 122, 121, 0.4), 0 0 0 0 rgba(236, 122, 121, 0.35);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 10px 30px rgba(236, 122, 121, 0.4), 0 0 0 0 rgba(236, 122, 121, 0.45); }
+    50% { box-shadow: 0 10px 30px rgba(236, 122, 121, 0.4), 0 0 0 14px rgba(236, 122, 121, 0); }
+  }
+  .cta-btn:hover {
+    background: #d05f5e;
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(236, 122, 121, 0.55);
+    animation: none;
+  }
+  .cta-btn span.arrow {
+    display: inline-block;
+    transition: transform 0.4s;
+  }
+  .cta-btn:hover span.arrow { transform: translateX(6px); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 32px; left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: var(--cream);
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  .hero-scroll::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: var(--cream);
+    margin: 12px auto 0;
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0%, 100% { transform: scaleY(1); opacity: 0.7; }
+    50% { transform: scaleY(0.4); opacity: 0.3; }
+  }
+
+  /* ====== SERVICES ====== */
+  .services {
+    padding: 140px 48px;
+    background: var(--cream);
+    position: relative;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 80px;
+  }
+  .section-eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--sage-deep);
+  }
+  .section-header h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(36px, 4.5vw, 56px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--navy-deep);
+    margin-bottom: 20px;
+  }
+  .section-header h2 em {
+    font-style: italic;
+    color: var(--navy);
+  }
+  .section-header p {
+    font-size: 17px;
+    color: #4a6362;
+    font-weight: 300;
+  }
+
+  .services-grid {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .service-card {
+    background: #fff;
+    padding: 48px 32px;
+    border-radius: 4px;
+    text-align: center;
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    border: 1px solid rgba(30, 79, 78, 0.06);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--navy);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 60px rgba(30, 79, 78, 0.12);
+  }
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-icon {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 24px;
+    background: var(--rose-soft);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.4s;
+  }
+  .service-card:hover .service-icon { background: var(--sage); }
+
+  .service-icon svg {
+    width: 36px;
+    height: 36px;
+    stroke: var(--navy-deep);
+    fill: none;
+    stroke-width: 1.5;
+  }
+
+  .service-card h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--navy-deep);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .service-card p {
+    font-size: 14px;
+    color: #5d7674;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* Photo-backed service card variant */
+  .service-card.card-photo {
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    border: none;
+    overflow: hidden;
+  }
+  .service-card.card-photo::before {
+    background: #ec7a79;
+  }
+  .service-card.card-photo h3 {
+    color: #fff;
+    position: relative;
+    z-index: 1;
+  }
+  .service-card.card-photo p {
+    color: rgba(255, 255, 255, 0.88);
+    position: relative;
+    z-index: 1;
+  }
+  .service-card.card-photo .service-icon {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    position: relative;
+    z-index: 1;
+  }
+  .service-card.card-photo .service-icon svg {
+    stroke: #fff;
+  }
+  .service-card.card-photo:hover .service-icon {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  /* ====== FAQ ====== */
+  .faq {
+    padding: 140px 48px;
+    background: #ebe3d8;
+    position: relative;
+    overflow: hidden;
+  }
+  .faq::before {
+    content: '';
+    position: absolute;
+    top: -120px; left: -120px;
+    width: 360px;
+    height: 360px;
+    background: var(--sage);
+    border-radius: 50%;
+    opacity: 0.5;
+    filter: blur(80px);
+  }
+  .faq-inner { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .faq-item {
+    background: #fff;
+    border-radius: 6px;
+    border: 1px solid rgba(30, 79, 78, 0.06);
+    box-shadow: 0 2px 12px rgba(30, 79, 78, 0.04);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    overflow: hidden;
+  }
+  .faq-item[open] {
+    box-shadow: 0 8px 30px rgba(30, 79, 78, 0.1);
+  }
+
+  .faq-item summary {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 28px;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    transition: background 0.3s ease;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary:hover { background: rgba(236, 122, 121, 0.05); }
+
+  .faq-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--navy);
+    opacity: 0.5;
+    flex-shrink: 0;
+    min-width: 28px;
+  }
+  .faq-q {
+    flex: 1;
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--navy-deep);
+    line-height: 1.4;
+    letter-spacing: -0.005em;
+  }
+  .faq-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--cream);
+    flex-shrink: 0;
+    position: relative;
+    transition: background 0.3s, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .faq-icon::before,
+  .faq-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    background: var(--navy-deep);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .faq-icon::before {
+    width: 12px; height: 1.5px;
+    transform: translate(-50%, -50%);
+  }
+  .faq-icon::after {
+    width: 1.5px; height: 12px;
+    transform: translate(-50%, -50%);
+  }
+  .faq-item[open] .faq-icon {
+    background: #ec7a79;
+    transform: rotate(180deg);
+  }
+  .faq-item[open] .faq-icon::before,
+  .faq-item[open] .faq-icon::after {
+    background: #fff;
+  }
+  .faq-item[open] .faq-icon::after {
+    transform: translate(-50%, -50%) scaleY(0);
+  }
+
+  .faq-a {
+    padding: 0 28px 26px 76px;
+    font-size: 15.5px;
+    line-height: 1.7;
+    color: #4a6362;
+    font-weight: 300;
+  }
+
+  /* ====== REVIEWS ====== */
+  .reviews {
+    padding: 140px 48px;
+    background: var(--sage);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .reviews::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px;
+    height: 400px;
+    background: var(--rose);
+    border-radius: 50%;
+    opacity: 0.3;
+    filter: blur(80px);
+  }
+
+  .reviews-inner { position: relative; z-index: 1; }
+
+  .google-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(30, 79, 78, 0.08);
+    font-size: 14px;
+    color: var(--navy-deep);
+    font-weight: 500;
+  }
+  .google-badge .stars { color: #f4b400; letter-spacing: 2px; }
+  .google-badge .review-count { color: #5d7674; font-size: 13px; font-weight: 400; }
+
+  .reviews-header { text-align: center; margin-bottom: 70px; }
+
+  .reviews-grid {
+    max-width: 1240px;
+    margin: 0 auto;
+    column-count: 3;
+    column-gap: 28px;
+  }
+
+  .review-card {
+    background: var(--cream);
+    padding: 32px 28px;
+    border-radius: 4px;
+    position: relative;
+    transition: transform 0.4s ease;
+    break-inside: avoid;
+    margin-bottom: 28px;
+    display: inline-block;
+    width: 100%;
+  }
+  .review-card:hover { transform: translateY(-4px); }
+
+  .review-stars {
+    color: #f4b400;
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+  .review-text {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+  .review-author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(30, 79, 78, 0.1);
+  }
+  .review-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--rose);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--navy-deep);
+    font-weight: 600;
+    font-size: 16px;
+  }
+  .review-info .name {
+    font-weight: 600;
+    color: var(--navy-deep);
+    font-size: 14px;
+  }
+  .review-info .date {
+    font-size: 12px;
+    color: #5d7674;
+  }
+
+  /* ====== FOOTER ====== */
+  footer {
+    background: var(--navy-deep);
+    color: var(--cream);
+    padding: 60px 48px 30px;
+    text-align: center;
+  }
+  footer .logo-foot {
+    height: 110px;
+    margin-bottom: 24px;
+  }
+  footer p {
+    font-size: 13px;
+    opacity: 0.7;
+    letter-spacing: 0.05em;
+  }
+  footer .foot-links {
+    margin: 20px 0 30px;
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  footer .foot-links a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 13px;
+    opacity: 0.8;
+    letter-spacing: 0.05em;
+    transition: opacity 0.3s;
+  }
+  footer .foot-links a:hover { opacity: 1; }
+
+  /* ====== RESPONSIVE ====== */
+  @media (max-width: 768px) {
+    .topbar {
+      padding: 8px 16px;
+      top: 12px;
+      left: 12px;
+      right: 12px;
+      border-radius: 999px;
+      flex-wrap: nowrap;
+    }
+    .topbar.scrolled { padding: 8px 16px; top: 10px; }
+    .logo { height: 56px; }
+    .topbar.scrolled .logo { height: 48px; }
+    /* Hide desktop nav, show hamburger */
+    nav { display: none; }
+    .hamburger { display: block; }
+    .topbar-call-mobile { display: inline-block; }
+    .hero { padding-top: 130px; padding-bottom: 60px; min-height: 680px; }
+    .hero-content { padding: 0 24px; }
+    .services, .reviews, .faq { padding: 90px 24px; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .reviews-grid { column-count: 2; }
+  }
+
+  /* ====== HAMBURGER MENU (mobile only) ====== */
+  .hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    z-index: 102;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #1e4f4e;
+    margin: 5px auto;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+  .hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 12px;
+    right: 12px;
+    background: rgba(244, 237, 228, 0.97);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 12px 40px rgba(30, 79, 78, 0.18);
+    z-index: 99;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+  }
+  .mobile-menu.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .mobile-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 0;
+    margin: 0;
+  }
+  .mobile-menu a {
+    display: block;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: #1e4f4e;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 12px;
+    transition: background 0.2s ease;
+  }
+  .mobile-menu a:hover,
+  .mobile-menu a:active {
+    background: rgba(205, 216, 212, 0.5);
+  }
+
+  @media (max-width: 720px) {
+    .logo { height: 48px; }
+    .topbar.scrolled .logo { height: 44px; }
+    .topbar { padding: 8px 14px; }
+    .hero { padding-top: 110px; }
+  }
+
+  @media (max-width: 560px) {
+    .topbar { padding: 6px 12px; top: 10px; left: 10px; right: 10px; }
+    .logo { height: 44px; }
+    .topbar.scrolled .logo { height: 40px; }
+    .mobile-menu { top: 70px; left: 10px; right: 10px; }
+    .hero { padding-top: 100px; min-height: 600px; }
+    .hero-content { padding: 0 20px; }
+    .hero h1 { font-size: clamp(36px, 9vw, 56px); margin-bottom: 18px; }
+    .hero p { font-size: 16px; margin-bottom: 28px; }
+    .hero-eyebrow { font-size: 16px; margin-bottom: 12px; }
+    .hero-rating { padding: 8px 14px; margin-bottom: 22px; }
+    .hero-rating .rating-text { font-size: 12px; }
+    .cta-btn { padding: 16px 28px; font-size: 13px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .reviews-grid { column-count: 1; }
+    .services, .reviews, .faq { padding: 70px 18px; }
+  }
+
+  /* Scroll fade-in */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<header class="topbar" id="topbar">
+  <img src="images/logo.png" alt="Coy" class="logo" />
+  <nav>
+    <ul>
+      <li><a href="#contact" class="nav-cta" id="call-us-link">Call Us</a></li>
+      <li><a href="#services">Our Services</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+    </ul>
+  </nav>
+  <a href="#contact" class="topbar-call-mobile" id="call-us-mobile">Call Us</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<div class="mobile-menu" id="mobile-menu">
+  <ul>
+    <li><a href="#contact">Call Us</a></li>
+    <li><a href="#services">Our Services</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-rating">
+      <span class="stars">★★★★★</span>
+      <span class="rating-text">4.9 stars on Google</span>
+      <svg class="google-g" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+      </svg>
+    </div>
+    <div class="hero-eyebrow">Exterior cleaning, done right.</div>
+    <h1>A brighter home,<br/><em>without the hassle.</em></h1>
+    <p>From spotless windows to revived siding, Coy delivers careful, professional exterior cleaning that makes your home shine — inside the glass and out.</p>
+    <a href="quote.html" class="cta-btn">Get a Free Quote <span class="arrow">→</span></a>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-header fade-up">
+    <span class="section-eyebrow">What we do</span>
+    <h2>Care for every <em>surface.</em></h2>
+    <p>Four services, one standard. Trained crews, eco-conscious solutions, and a finish you'll notice the moment you pull into the driveway.</p>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card card-photo fade-up" style="background-image: linear-gradient(180deg, rgba(20,35,45,0.35) 0%, rgba(20,35,45,0.75) 100%), url('images/window-cleaning.jpg');">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
+      </div>
+      <h3>Window Cleaning</h3>
+      <p>Streak-free, edge-to-edge clarity for interior and exterior glass on homes of every size.</p>
+    </div>
+
+    <div class="service-card card-photo fade-up" style="background-image: linear-gradient(180deg, rgba(20,35,45,0.35) 0%, rgba(20,35,45,0.75) 100%), url('images/pressure-washing.jpg');">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2v6"/><path d="M8 8h8l-1 12H9z"/><path d="M6 14c-2 0-3 1-3 3s1 3 3 3"/><path d="M18 14c2 0 3 1 3 3s-1 3-3 3"/></svg>
+      </div>
+      <h3>Pressure Washing</h3>
+      <p>Driveways, walkways, and patios restored — grime, mildew, and stains lifted with precision.</p>
+    </div>
+
+    <div class="service-card card-photo fade-up" style="background-image: linear-gradient(180deg, rgba(20,35,45,0.35) 0%, rgba(20,35,45,0.75) 100%), url('images/soft-washing.jpg');">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M4 20c2-2 4-2 4 0M10 20c2-2 4-2 4 0M16 20c2-2 4-2 4 0M6 12c2-2 4-2 4 0M12 12c2-2 4-2 4 0M9 4c2-2 4-2 4 0"/></svg>
+      </div>
+      <h3>Soft Washing</h3>
+      <p>A gentler clean for siding, roofs, and delicate exteriors using low-pressure, biodegradable solutions.</p>
+    </div>
+
+    <div class="service-card card-photo fade-up" style="background-image: linear-gradient(180deg, rgba(20,35,45,0.35) 0%, rgba(20,35,45,0.75) 100%), url('images/gutter-cleaning.jpg');">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 7h18l-2 13H5z"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="12" y1="11" x2="12" y2="17"/></svg>
+      </div>
+      <h3>Gutter Cleaning</h3>
+      <p>Full hand-clearing and flush. We protect your roofline, foundation, and landscaping in one visit.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="reviews-inner">
+    <div class="reviews-header fade-up">
+      <div class="google-badge">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        <span>4.9 on Google</span>
+        <span class="stars">★ ★ ★ ★ ★</span>
+      </div>
+      <span class="section-eyebrow">What clients say</span>
+      <h2 style="margin-top: 12px;">Trusted on every <em>block.</em></h2>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card fade-up">
+        <div class="review-stars">★ ★ ★ ★ ★</div>
+        <p class="review-text">"Recently received an exterior window clean and I am beyond happy with the results. Would definitely recommend."</p>
+        <div class="review-author">
+          <div class="review-avatar">MS</div>
+          <div class="review-info">
+            <div class="name">Matthew Steffel</div>
+            <div class="date">5 days ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fade-up">
+        <div class="review-stars">★ ★ ★ ★ ★</div>
+        <p class="review-text">"These window cleaners are not the ordinary. Liam and his crew were funny, professional, and thorough. I had some tough spots and they handled every one."</p>
+        <div class="review-author">
+          <div class="review-avatar">CC</div>
+          <div class="review-info">
+            <div class="name">Cathy Cunningham</div>
+            <div class="date">1 week ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fade-up">
+        <div class="review-stars">★ ★ ★ ★ ★</div>
+        <p class="review-text">"Liam and his crew are amazing! They cleaned my windows which had not been cleaned in many years to bright and shiny — couldn't be happier."</p>
+        <div class="review-author">
+          <div class="review-avatar">DR</div>
+          <div class="review-info">
+            <div class="name">Dena Rubnitz</div>
+            <div class="date">1 week ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fade-up">
+        <div class="review-stars">★ ★ ★ ★ ★</div>
+        <p class="review-text">"Liam and his group are very professional, reliable, and pay attention to detail. They clean my windows once in the spring and again in the fall."</p>
+        <div class="review-author">
+          <div class="review-avatar">EM</div>
+          <div class="review-info">
+            <div class="name">Eric Mendeloff</div>
+            <div class="date">2 weeks ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fade-up">
+        <div class="review-stars">★ ★ ★ ★ ★</div>
+        <p class="review-text">"A professional business that does great work. The crew sent to my house worked quickly and did a beautiful job. I'll never go anywhere else for my windows!"</p>
+        <div class="review-author">
+          <div class="review-avatar">AO</div>
+          <div class="review-info">
+            <div class="name">Aidan O'Meara</div>
+            <div class="date">2 weeks ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fade-up">
+        <div class="review-stars">★ ★ ★ ★ ★</div>
+        <p class="review-text">"Great people to work with. The price is very reasonable and the service is great. Would definitely hire again."</p>
+        <div class="review-author">
+          <div class="review-avatar">NS</div>
+          <div class="review-info">
+            <div class="name">Nikesh Shah</div>
+            <div class="date">2 weeks ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fade-up">
+        <div class="review-stars">★ ★ ★ ★ ★</div>
+        <p class="review-text">"Great customer service and an even better job."</p>
+        <div class="review-author">
+          <div class="review-avatar">KE</div>
+          <div class="review-info">
+            <div class="name">Kyle Eggers</div>
+            <div class="date">2 weeks ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fade-up">
+        <div class="review-stars">★ ★ ★ ★ ★</div>
+        <p class="review-text">"The technician professionally cleaned all of my screens and windows, and showed up on time. Highly recommend."</p>
+        <div class="review-author">
+          <div class="review-avatar">LV</div>
+          <div class="review-info">
+            <div class="name">Leo Vail</div>
+            <div class="date">2 weeks ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fade-up">
+        <div class="review-stars">★ ★ ★ ★ ★</div>
+        <p class="review-text">"Windows look great! Very friendly and kind — phenomenal customer service as well."</p>
+        <div class="review-author">
+          <div class="review-avatar">CL</div>
+          <div class="review-info">
+            <div class="name">Cristian Lavariega</div>
+            <div class="date">2 weeks ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fade-up">
+        <div class="review-stars">★ ★ ★ ★ ★</div>
+        <p class="review-text">"Best window cleaner in the Chicagoland area by far. You can tell they take pride in their work."</p>
+        <div class="review-author">
+          <div class="review-avatar">RD</div>
+          <div class="review-info">
+            <div class="name">Rein D.</div>
+            <div class="date">2 weeks ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fade-up">
+        <div class="review-stars">★ ★ ★ ★ ★</div>
+        <p class="review-text">"Worker was very fast, efficient and respectful cleaning my windows. 10/10 would recommend again."</p>
+        <div class="review-author">
+          <div class="review-avatar">JR</div>
+          <div class="review-info">
+            <div class="name">Joey Reinhardt</div>
+            <div class="date">2 weeks ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fade-up">
+        <div class="review-stars">★ ★ ★ ★ ★</div>
+        <p class="review-text">"Did a good job."</p>
+        <div class="review-author">
+          <div class="review-avatar">LW</div>
+          <div class="review-info">
+            <div class="name">Liam W.</div>
+            <div class="date">2 weeks ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fade-up">
+        <div class="review-stars">★ ★ ★ ★ ★</div>
+        <p class="review-text">"This company conducted themselves as professionally as you could ask for and did a top-of-the-line job. I'd recommend them for any service they offer!"</p>
+        <div class="review-author">
+          <div class="review-avatar">MM</div>
+          <div class="review-info">
+            <div class="name">Mason M.</div>
+            <div class="date">2 weeks ago</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <div class="section-header fade-up">
+      <span class="section-eyebrow">Frequently asked</span>
+      <h2>The questions <em>we hear most.</em></h2>
+      <p>Straight answers about how we work, what to expect, and how to book.</p>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item fade-up">
+        <summary><span class="faq-num">01</span><span class="faq-q">What sets Coy apart from other window cleaners?</span><span class="faq-icon"></span></summary>
+        <div class="faq-a">We don't rush. Every job follows the same careful routine — pre-rinse, hand-scrub the glass, squeegee with a clean edge, and detail the frames and sills before we leave. The result is glass that actually looks clean up close, not just from the driveway.</div>
+      </details>
+
+      <details class="faq-item fade-up">
+        <summary><span class="faq-num">02</span><span class="faq-q">Can you reach second and third-story windows?</span><span class="faq-icon"></span></summary>
+        <div class="faq-a">Yes. Our crew is trained on extension ladders and water-fed pole systems for tall or hard-to-reach glass. Safety equipment and proper setup come standard, so even the tricky panes get the same care as the ones at eye level.</div>
+      </details>
+
+      <details class="faq-item fade-up">
+        <summary><span class="faq-num">03</span><span class="faq-q">How often should I have my windows cleaned?</span><span class="faq-icon"></span></summary>
+        <div class="faq-a">For most homes, twice a year — once in spring and once in fall — keeps the glass consistently clear. Homes near construction, busy roads, or heavy tree cover often benefit from quarterly visits. We'll recommend a cadence based on what you're dealing with.</div>
+      </details>
+
+      <details class="faq-item fade-up">
+        <summary><span class="faq-num">04</span><span class="faq-q">What happens if it rains right after you clean?</span><span class="faq-icon"></span></summary>
+        <div class="faq-a">Clean glass shrugs off normal rain just fine — water beads and runs without leaving the streaks dirty glass would. If a storm somehow leaves visible spotting within a few days of your service, give us a call and we'll come back to make it right.</div>
+      </details>
+
+      <details class="faq-item fade-up">
+        <summary><span class="faq-num">05</span><span class="faq-q">Do you offer discounts for repeat customers?</span><span class="faq-icon"></span></summary>
+        <div class="faq-a">Yes. Customers on a recurring schedule get a reduced rate on every visit, and we hold your appointment slot so you don't have to chase the booking each season. Ask us for current pricing when you reach out.</div>
+      </details>
+
+      <details class="faq-item fade-up">
+        <summary><span class="faq-num">06</span><span class="faq-q">How do I book a cleaning?</span><span class="faq-icon"></span></summary>
+        <div class="faq-a">The easiest way is to grab a free quote with the button above — tell us a bit about your home and we'll get back to you with a price the same day. You can also call us directly using the Call Us tab at the top of the page.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <img src="images/logo-footer.png" alt="Coy" class="logo-foot" />
+  <div class="foot-links">
+    <a href="#services">Services</a>
+    <a href="#reviews">Reviews</a>
+    <a href="tel:7739974886">Call (773) 997-4886</a>
+    <a href="mailto:coycleaning1@gmail.com">coycleaning1@gmail.com</a>
+  </div>
+  <p>© 2026 Coy Exterior Cleaning. All rights reserved.</p>
+</footer>
+
+<script>
+  // Sticky bar effect
+  const bar = document.getElementById('topbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) bar.classList.add('scrolled');
+    else bar.classList.remove('scrolled');
+  });
+
+  // Fade-in on scroll
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  fadeEls.forEach(el => io.observe(el));
+
+  // Smart Call Us link — dial on mobile/touch, scroll on desktop
+  const callLink = document.getElementById('call-us-link');
+  const isMobile = /Android|iPhone|iPad|iPod|Mobile|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+                   || (window.matchMedia && window.matchMedia('(max-width: 768px)').matches);
+  if (callLink && isMobile) {
+    callLink.setAttribute('href', 'tel:7739974886');
+  }
+
+  // Hamburger menu toggle
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    // Close menu when a link inside is clicked
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        // Also set tel: on the mobile menu Call Us link
+        if (a.getAttribute('href') === '#contact' && isMobile) {
+          a.setAttribute('href', 'tel:7739974886');
+        }
+      });
+    });
+    // Set tel on mobile menu Call Us link upfront if mobile
+    if (isMobile) {
+      const mobileCallLink = mobileMenu.querySelector('a[href="#contact"]');
+      if (mobileCallLink) mobileCallLink.setAttribute('href', 'tel:7739974886');
+    }
+  }
+</script>
+
+</body>
+</html>
