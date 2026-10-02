@@ -33,15 +33,27 @@
 {
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
+  "@id": "https://www.coyexteriorcleaning.com/#business",
   "name": "Coy Exterior Cleaning",
+  "alternateName": "Coy Window Cleaning",
+  "description": "Coy Exterior Cleaning is a residential window cleaning company serving the San Francisco Bay Area, including San Francisco, the Peninsula, and San Jose / South Bay. Services include interior and exterior window cleaning, screen cleaning, pressure washing, soft washing, and gutter cleaning. Rated 4.9 stars on Google.",
+  "slogan": "Bay Area exterior cleaning, done right.",
+  "logo": "https://www.coyexteriorcleaning.com/logo.png",
   "image": "https://www.coyexteriorcleaning.com/hero.jpg",
-  "telephone": "+1-773-997-4886",
-  "email": "coycleaning1@gmail.com",
+  "address": { "@type": "PostalAddress", "addressRegion": "CA", "addressCountry": "US" },
+  "knowsAbout": ["Window cleaning", "Residential window washing", "Screen cleaning", "Pressure washing", "Soft washing", "Gutter cleaning", "Exterior house cleaning"],
+  "contactPoint": { "@type": "ContactPoint", "telephone": "+1-650-267-2936", "email": "contact.coycloud@gmail.com", "contactType": "customer service", "areaServed": "US-CA", "availableLanguage": "English" },
+  "telephone": "+1-650-267-2936",
+  "email": "contact.coycloud@gmail.com",
   "url": "https://www.coyexteriorcleaning.com/",
   "priceRange": "$$",
   "sameAs": ["https://g.page/r/CWURUqnsM_TvEAI/review"],
   "areaServed": [
+    { "@type": "AdministrativeArea", "name": "San Francisco Bay Area" },
     { "@type": "City", "name": "San Francisco" },
+    { "@type": "City", "name": "Daly City" },
+    { "@type": "City", "name": "South San Francisco" },
+    { "@type": "City", "name": "Campbell" },
     { "@type": "City", "name": "San Jose" },
     { "@type": "City", "name": "Palo Alto" },
     { "@type": "City", "name": "San Mateo" },
@@ -53,10 +65,10 @@
     { "@type": "City", "name": "Cupertino" }
   ],
   "makesOffer": [
-    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Window Cleaning" } },
-    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pressure Washing" } },
-    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Soft Washing" } },
-    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gutter Cleaning" } }
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Window Cleaning", "serviceType": "Residential window cleaning", "description": "Streak-free interior and exterior window cleaning, including screens, frames, and sills, for homes in San Francisco, the Peninsula, and San Jose.", "areaServed": "San Francisco Bay Area" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pressure Washing", "description": "Pressure washing for driveways, walkways, and patios in the San Francisco Bay Area.", "areaServed": "San Francisco Bay Area" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Soft Washing", "description": "Low-pressure soft washing for siding, roofs, and delicate exteriors using biodegradable solutions.", "areaServed": "San Francisco Bay Area" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gutter Cleaning", "description": "Hand-cleared and flushed gutters to protect roofline, foundation, and landscaping.", "areaServed": "San Francisco Bay Area" } }
   ]
 }
 </script>
@@ -95,6 +107,11 @@
       "@type": "Question",
       "name": "How do I book a cleaning?",
       "acceptedAnswer": { "@type": "Answer", "text": "The easiest way is to grab a free quote with the button above — tell us a bit about your home and we'll get back to you with a price the same day. You can also call us directly using the Call Us tab at the top of the page." }
+    },
+    {
+      "@type": "Question",
+      "name": "Where in the Bay Area do you offer window cleaning?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Coy Exterior Cleaning provides residential window cleaning across the San Francisco Bay Area: San Francisco, Daly City, and South San Francisco; the Peninsula, including San Mateo, Redwood City, Palo Alto, Menlo Park, and Mountain View; and the South Bay, including San Jose, Santa Clara, Sunnyvale, Cupertino, and Campbell." }
     }
   ]
 }
@@ -1525,6 +1542,11 @@
         <summary><span class="faq-num">06</span><span class="faq-q">How do I book a cleaning?</span><span class="faq-icon"></span></summary>
         <div class="faq-a">The easiest way is to grab a free quote with the button above — tell us a bit about your home and we'll get back to you with a price the same day. You can also call us directly using the Call Us tab at the top of the page.</div>
       </details>
+
+      <details class="faq-item fade-up">
+        <summary><span class="faq-num">07</span><span class="faq-q">Where in the Bay Area do you offer window cleaning?</span><span class="faq-icon"></span></summary>
+        <div class="faq-a">We provide residential window cleaning across the San Francisco Bay Area: San Francisco, Daly City, and South San Francisco; the Peninsula, including San Mateo, Redwood City, Palo Alto, Menlo Park, and Mountain View; and the South Bay, including San Jose, Santa Clara, Sunnyvale, Cupertino, and Campbell.</div>
+      </details>
     </div>
   </div>
 </section>
@@ -1535,8 +1557,8 @@
   <div class="foot-links">
     <a href="#services">Services</a>
     <a href="#reviews">Reviews</a>
-    <a href="tel:7739974886">Call (773) 997-4886</a>
-    <a href="mailto:coycleaning1@gmail.com">coycleaning1@gmail.com</a>
+    <a href="tel:6502672936">Call (650) 267-2936</a>
+    <a href="mailto:contact.coycloud@gmail.com">contact.coycloud@gmail.com</a>
   </div>
   <p>© 2026 Coy Exterior Cleaning. All rights reserved.</p>
 </footer>
@@ -1566,7 +1588,7 @@
   const isMobile = /Android|iPhone|iPad|iPod|Mobile|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
                    || (window.matchMedia && window.matchMedia('(max-width: 768px)').matches);
   if (callLink && isMobile) {
-    callLink.setAttribute('href', 'tel:7739974886');
+    callLink.setAttribute('href', 'tel:6502672936');
   }
 
   // Reviews carousel arrow controls
@@ -1605,14 +1627,14 @@
         hamburger.setAttribute('aria-expanded', 'false');
         // Also set tel: on the mobile menu Call Us link
         if (a.getAttribute('href') === '#contact' && isMobile) {
-          a.setAttribute('href', 'tel:7739974886');
+          a.setAttribute('href', 'tel:6502672936');
         }
       });
     });
     // Set tel on mobile menu Call Us link upfront if mobile
     if (isMobile) {
       const mobileCallLink = mobileMenu.querySelector('a[href="#contact"]');
-      if (mobileCallLink) mobileCallLink.setAttribute('href', 'tel:7739974886');
+      if (mobileCallLink) mobileCallLink.setAttribute('href', 'tel:6502672936');
     }
   }
 </script>
