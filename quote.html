@@ -687,6 +687,18 @@
   const successMessage = document.getElementById('success-message');
   const submitBtn = form.querySelector('.submit-btn');
 
+  // Carry a service plan chosen on the window cleaning pages (?plan=Monthly|Quarterly|Biannual)
+  (function prefillPlan() {
+    const plan = new URLSearchParams(window.location.search).get('plan');
+    if (!plan || !/^(Monthly|Quarterly|Biannual)$/.test(plan)) return;
+    const hidden = document.createElement('input');
+    hidden.type = 'hidden'; hidden.name = 'plan'; hidden.value = plan + ' window cleaning plan';
+    form.appendChild(hidden);
+    const win = document.getElementById('svc-windows'); if (win) win.checked = true;
+    const details = document.getElementById('details');
+    if (details && !details.value) details.value = 'Interested in the ' + plan + ' window cleaning plan.';
+  })();
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
