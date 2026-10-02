@@ -51,6 +51,13 @@
   "areaServed": [
     { "@type": "AdministrativeArea", "name": "San Francisco Bay Area" },
     { "@type": "City", "name": "San Francisco" },
+    { "@type": "City", "name": "Atherton" },
+    { "@type": "City", "name": "Hillsborough" },
+    { "@type": "City", "name": "Burlingame" },
+    { "@type": "City", "name": "San Carlos" },
+    { "@type": "City", "name": "Woodside" },
+    { "@type": "City", "name": "Portola Valley" },
+    { "@type": "City", "name": "Los Altos" },
     { "@type": "City", "name": "Daly City" },
     { "@type": "City", "name": "South San Francisco" },
     { "@type": "City", "name": "Campbell" },
@@ -65,10 +72,10 @@
     { "@type": "City", "name": "Cupertino" }
   ],
   "makesOffer": [
-    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Window Cleaning", "serviceType": "Residential window cleaning", "description": "Streak-free interior and exterior window cleaning, including screens, frames, and sills, for homes in San Francisco, the Peninsula, and San Jose.", "areaServed": "San Francisco Bay Area" } },
-    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pressure Washing", "description": "Pressure washing for driveways, walkways, and patios in the San Francisco Bay Area.", "areaServed": "San Francisco Bay Area" } },
-    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Soft Washing", "description": "Low-pressure soft washing for siding, roofs, and delicate exteriors using biodegradable solutions.", "areaServed": "San Francisco Bay Area" } },
-    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gutter Cleaning", "description": "Hand-cleared and flushed gutters to protect roofline, foundation, and landscaping.", "areaServed": "San Francisco Bay Area" } }
+    { "@type": "Offer", "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": 199 }, "itemOffered": { "@type": "Service", "name": "Window Cleaning", "serviceType": "Residential window cleaning", "description": "Streak-free interior and exterior window cleaning, including screens, frames, and sills, for homes in San Francisco, the Peninsula, and San Jose.", "areaServed": "San Francisco Bay Area" } },
+    { "@type": "Offer", "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": 249 }, "itemOffered": { "@type": "Service", "name": "Pressure Washing", "description": "Pressure washing for driveways, walkways, and patios in the San Francisco Bay Area.", "areaServed": "San Francisco Bay Area" } },
+    { "@type": "Offer", "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": 400, "maxPrice": 900 }, "itemOffered": { "@type": "Service", "name": "Soft Washing", "description": "Low-pressure soft washing for siding, roofs, and delicate exteriors using biodegradable solutions.", "areaServed": "San Francisco Bay Area" } },
+    { "@type": "Offer", "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": 150 }, "itemOffered": { "@type": "Service", "name": "Gutter Cleaning", "description": "Hand-cleared and flushed gutters to protect roofline, foundation, and landscaping.", "areaServed": "San Francisco Bay Area" } }
   ]
 }
 </script>
@@ -686,6 +693,155 @@
     background: rgba(255, 255, 255, 0.25);
   }
 
+  /* ====== FLIP CARDS (services) ====== */
+  .flip-card {
+    perspective: 1400px;
+    cursor: pointer;
+    outline: none;
+    border-radius: 6px;
+  }
+  .flip-card:focus-visible { box-shadow: 0 0 0 3px var(--rose); }
+  .flip-inner {
+    display: grid;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+    border-radius: 6px;
+  }
+  .flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+  .flip-face {
+    grid-area: 1 / 1;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 6px;
+    padding: 40px 28px 32px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    min-height: 420px;
+  }
+  .flip-front {
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    transition: box-shadow 0.4s ease;
+  }
+  .flip-card:hover .flip-front { box-shadow: 0 24px 60px rgba(30, 79, 78, 0.18); }
+  .flip-front .service-icon {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
+  .flip-front .service-icon svg { stroke: #fff; }
+  .flip-front h3, .flip-back h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 22px;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .flip-front p {
+    font-size: 14px;
+    line-height: 1.65;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  .flip-hint {
+    margin-top: 22px;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: rgba(236, 122, 121, 0.9);
+    color: #fff;
+  }
+  .flip-back {
+    transform: rotateY(180deg);
+    background: #fff;
+    border: 1px solid rgba(30, 79, 78, 0.08);
+    box-shadow: 0 24px 60px rgba(30, 79, 78, 0.12);
+    color: var(--navy-deep);
+    text-align: left;
+    padding: 30px 26px 26px;
+  }
+  .flip-back h3 { color: var(--navy-deep); margin-bottom: 10px; }
+  .flip-price {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 16px;
+    background: var(--rose-soft);
+    border-radius: 12px;
+    margin-bottom: 16px;
+  }
+  .flip-price-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #b85a59;
+  }
+  .flip-price-amount {
+    font-family: 'Fraunces', serif;
+    font-size: 30px;
+    line-height: 1.15;
+    color: var(--navy-deep);
+  }
+  .flip-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 14px;
+  }
+  .flip-list li {
+    position: relative;
+    padding-left: 22px;
+    font-size: 13.5px;
+    line-height: 1.45;
+    color: #3f5a59;
+  }
+  .flip-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0; top: 0;
+    color: var(--navy);
+    font-weight: 700;
+  }
+  .flip-note {
+    font-size: 12px;
+    font-style: italic;
+    color: #7a8e8c;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .flip-cta {
+    margin-top: auto;
+    display: block;
+    text-align: center;
+    padding: 12px 18px;
+    border-radius: 999px;
+    background: var(--navy-deep);
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: background 0.3s ease;
+  }
+  .flip-cta:hover { background: var(--rose); }
+  @media (prefers-reduced-motion: reduce) {
+    .flip-inner { transition: none; }
+  }
+
   /* ====== FAQ ====== */
   .faq {
     padding: 140px 48px;
@@ -1163,6 +1319,7 @@
   }
   .fade-up.visible { opacity: 1; transform: translateY(0); }
 </style>
+<style>.area-links{max-width:1000px;margin:48px auto 0;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}.area-links a{background:#fff;border-radius:999px;padding:12px 22px;text-decoration:none;color:var(--navy-deep);font-size:14px;font-weight:500;box-shadow:0 4px 14px rgba(30,79,78,.06);transition:transform .25s}.area-links a:hover{transform:translateY(-2px)}.area-links a span{color:var(--rose)}</style>
 </head>
 <body>
 
@@ -1247,37 +1404,78 @@
   </div>
 
   <div class="services-grid">
-    <div class="service-card card-photo fade-up" style="background-image: linear-gradient(180deg, rgba(20,35,45,0.35) 0%, rgba(20,35,45,0.75) 100%), url('window-cleaning.jpg');">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
+    <div class="flip-card fade-up" tabindex="0" role="button" aria-pressed="false" aria-label="Window Cleaning: show details and pricing">
+      <div class="flip-inner">
+        <div class="flip-face flip-front" style="background-image: linear-gradient(180deg, rgba(20,35,45,0.35) 0%, rgba(20,35,45,0.75) 100%), url('window-cleaning.jpg');">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg></div>
+          <h3>Window Cleaning</h3>
+          <p>Streak-free, edge-to-edge clarity for interior and exterior glass on homes of every size.</p>
+          <span class="flip-hint">Details &amp; pricing <span aria-hidden="true">↻</span></span>
+        </div>
+        <div class="flip-face flip-back">
+          <h3>Window Cleaning</h3>
+          <div class="flip-price"><span class="flip-price-label">Starting at</span><span class="flip-price-amount">$199</span></div>
+          <ul class="flip-list"><li>Interior and exterior glass, hand-scrubbed and squeegeed</li><li>Screens cleaned</li><li>Frames and sills wiped down</li><li>2nd and 3rd-story windows with ladders and water-fed poles</li></ul>
+          <p class="flip-note">Final price depends on the number of windows and how easy they are to reach.</p>
+          <a href="#get-quote" class="flip-cta">Get an exact quote →</a>
+        </div>
       </div>
-      <h3>Window Cleaning</h3>
-      <p>Streak-free, edge-to-edge clarity for interior and exterior glass on homes of every size.</p>
     </div>
 
-    <div class="service-card card-photo fade-up" style="background-image: linear-gradient(180deg, rgba(20,35,45,0.35) 0%, rgba(20,35,45,0.75) 100%), url('pressure-washing.jpg');">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 2v6"/><path d="M8 8h8l-1 12H9z"/><path d="M6 14c-2 0-3 1-3 3s1 3 3 3"/><path d="M18 14c2 0 3 1 3 3s-1 3-3 3"/></svg>
+    <div class="flip-card fade-up" tabindex="0" role="button" aria-pressed="false" aria-label="Pressure Washing: show details and pricing">
+      <div class="flip-inner">
+        <div class="flip-face flip-front" style="background-image: linear-gradient(180deg, rgba(20,35,45,0.35) 0%, rgba(20,35,45,0.75) 100%), url('pressure-washing.jpg');">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2v6"/><path d="M8 8h8l-1 12H9z"/><path d="M6 14c-2 0-3 1-3 3s1 3 3 3"/><path d="M18 14c2 0 3 1 3 3s-1 3-3 3"/></svg></div>
+          <h3>Pressure Washing</h3>
+          <p>Driveways, walkways, and patios restored — grime, mildew, and stains lifted with precision.</p>
+          <span class="flip-hint">Details &amp; pricing <span aria-hidden="true">↻</span></span>
+        </div>
+        <div class="flip-face flip-back">
+          <h3>Pressure Washing</h3>
+          <div class="flip-price"><span class="flip-price-label">Starting at</span><span class="flip-price-amount">$249</span></div>
+          <ul class="flip-list"><li>Driveways, walkways, and patios</li><li>Lifts dirt, grime, mildew, and surface stains</li><li>Concrete, pavers, and stone</li><li>Pairs well with a window cleaning visit</li></ul>
+          <p class="flip-note">Final price depends on square footage and surface condition.</p>
+          <a href="#get-quote" class="flip-cta">Get an exact quote →</a>
+        </div>
       </div>
-      <h3>Pressure Washing</h3>
-      <p>Driveways, walkways, and patios restored — grime, mildew, and stains lifted with precision.</p>
     </div>
 
-    <div class="service-card card-photo fade-up" style="background-image: linear-gradient(180deg, rgba(20,35,45,0.35) 0%, rgba(20,35,45,0.75) 100%), url('soft-washing.jpg');">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24"><path d="M4 20c2-2 4-2 4 0M10 20c2-2 4-2 4 0M16 20c2-2 4-2 4 0M6 12c2-2 4-2 4 0M12 12c2-2 4-2 4 0M9 4c2-2 4-2 4 0"/></svg>
+    <div class="flip-card fade-up" tabindex="0" role="button" aria-pressed="false" aria-label="Soft Washing: show details and pricing">
+      <div class="flip-inner">
+        <div class="flip-face flip-front" style="background-image: linear-gradient(180deg, rgba(20,35,45,0.35) 0%, rgba(20,35,45,0.75) 100%), url('soft-washing.jpg');">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M4 20c2-2 4-2 4 0M10 20c2-2 4-2 4 0M16 20c2-2 4-2 4 0M6 12c2-2 4-2 4 0M12 12c2-2 4-2 4 0M9 4c2-2 4-2 4 0"/></svg></div>
+          <h3>Soft Washing</h3>
+          <p>A gentler clean for siding, roofs, and delicate exteriors using low-pressure, biodegradable solutions.</p>
+          <span class="flip-hint">Details &amp; pricing <span aria-hidden="true">↻</span></span>
+        </div>
+        <div class="flip-face flip-back">
+          <h3>Soft Washing</h3>
+          <div class="flip-price"><span class="flip-price-label">Typical range</span><span class="flip-price-amount">$400–$900</span></div>
+          <ul class="flip-list"><li>Siding, stucco, roofs, and delicate exteriors</li><li>Low pressure — safe for paint and trim</li><li>Biodegradable cleaning solutions</li><li>Removes mildew, algae, and built-up grime</li></ul>
+          <p class="flip-note">Final price depends on home size, number of stories, and siding type.</p>
+          <a href="#get-quote" class="flip-cta">Get an exact quote →</a>
+        </div>
       </div>
-      <h3>Soft Washing</h3>
-      <p>A gentler clean for siding, roofs, and delicate exteriors using low-pressure, biodegradable solutions.</p>
     </div>
 
-    <div class="service-card card-photo fade-up" style="background-image: linear-gradient(180deg, rgba(20,35,45,0.35) 0%, rgba(20,35,45,0.75) 100%), url('gutter-cleaning.jpg');">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24"><path d="M3 7h18l-2 13H5z"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="12" y1="11" x2="12" y2="17"/></svg>
+    <div class="flip-card fade-up" tabindex="0" role="button" aria-pressed="false" aria-label="Gutter Cleaning: show details and pricing">
+      <div class="flip-inner">
+        <div class="flip-face flip-front" style="background-image: linear-gradient(180deg, rgba(20,35,45,0.35) 0%, rgba(20,35,45,0.75) 100%), url('gutter-cleaning.jpg');">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 7h18l-2 13H5z"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="12" y1="11" x2="12" y2="17"/></svg></div>
+          <h3>Gutter Cleaning</h3>
+          <p>Full hand-clearing and flush. We protect your roofline, foundation, and landscaping in one visit.</p>
+          <span class="flip-hint">Details &amp; pricing <span aria-hidden="true">↻</span></span>
+        </div>
+        <div class="flip-face flip-back">
+          <h3>Gutter Cleaning</h3>
+          <div class="flip-price"><span class="flip-price-label">Starting at</span><span class="flip-price-amount">$150</span></div>
+          <ul class="flip-list"><li>Gutters cleared by hand</li><li>Gutters and downspouts flushed</li><li>Protects roofline, foundation, and landscaping</li><li>Great before the Bay Area rainy season</li></ul>
+          <p class="flip-note">Final price depends on the length of gutter and number of stories.</p>
+          <a href="#get-quote" class="flip-cta">Get an exact quote →</a>
+        </div>
       </div>
-      <h3>Gutter Cleaning</h3>
-      <p>Full hand-clearing and flush. We protect your roofline, foundation, and landscaping in one visit.</p>
     </div>
+
   </div>
 </section>
 
@@ -1310,12 +1508,17 @@
     </div>
     <div class="area-group">
       <h3>Peninsula</h3>
-      <p>San Mateo, Redwood City, Palo Alto, Menlo Park, Mountain View</p>
+      <p>Atherton, Hillsborough, Burlingame, San Mateo, San Carlos, Redwood City, Woodside, Portola Valley, Menlo Park, Palo Alto, Los Altos, Mountain View</p>
     </div>
     <div class="area-group">
       <h3>South Bay / San Jose</h3>
       <p>San Jose, Santa Clara, Sunnyvale, Cupertino, Campbell</p>
     </div>
+  </div>
+  <div class="area-links fade-up">
+    <a href="window-cleaning.html">Window cleaning by city <span>→</span></a>
+    <a href="pressure-washing.html">Pressure washing by city <span>→</span></a>
+    <a href="gutter-cleaning.html">Gutter cleaning by city <span>→</span></a>
   </div>
 </section>
 
@@ -1557,6 +1760,9 @@
   <div class="foot-links">
     <a href="#services">Services</a>
     <a href="#reviews">Reviews</a>
+    <a href="window-cleaning.html">Window Cleaning</a>
+    <a href="pressure-washing.html">Pressure Washing</a>
+    <a href="gutter-cleaning.html">Gutter Cleaning</a>
     <a href="tel:6502672936">Call (650) 267-2936</a>
     <a href="mailto:contact.coycloud@gmail.com">contact.coycloud@gmail.com</a>
   </div>
@@ -1609,6 +1815,22 @@
       reviewsGrid.scrollBy({ left: scrollByAmount(), behavior: 'smooth' });
     });
   }
+
+  // Service flip cards — tap/click or Enter/Space to flip
+  document.querySelectorAll('.flip-card').forEach(card => {
+    const toggle = () => {
+      const on = card.classList.toggle('flipped');
+      card.setAttribute('aria-pressed', on ? 'true' : 'false');
+    };
+    card.addEventListener('click', e => {
+      if (e.target.closest('.flip-cta')) return; // let the quote link work
+      toggle();
+    });
+    card.addEventListener('keydown', e => {
+      if (e.target !== card) return;
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+    });
+  });
 
   // Hamburger menu toggle
   const hamburger = document.getElementById('hamburger');
