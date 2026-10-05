@@ -1,6 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18142452119"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18142452119');
+</script>
+<!-- Google Ads conversions: paste the conversion labels from Google Ads (Goals > Conversions) below -->
+<script>
+  window.COY_ADS = {
+    callClick: '',   // e.g. 'AW-18142452119/AbC-D_efG-h12_34-567'
+    quoteLead: ''    // e.g. 'AW-18142452119/XyZ-a_bcD-e98_76-543'
+  };
+  window.coyConversion = function (key) {
+    var id = window.COY_ADS && window.COY_ADS[key];
+    if (id) gtag('event', 'conversion', { send_to: id });
+  };
+  // Count taps/clicks on any phone number link as a call conversion
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="tel:"]');
+    if (a) window.coyConversion('callClick');
+  });
+</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Gutter Cleaning in Palo Alto, CA | Coy Exterior Cleaning</title>
@@ -235,6 +260,7 @@ footer p{font-size:12.5px;opacity:.65}
  .mobile-bar .quote{background:var(--rose);color:#fff}
 }
 </style>
+<link rel="stylesheet" href="lead-form.css" />
 </head>
 <body>
 <header class="topbar">
@@ -317,13 +343,8 @@ footer p{font-size:12.5px;opacity:.65}
 
 <section class="band" id="quote"><div class="wrap">
   <div class="quote-band">
-    <div><h2>Get your Palo Alto <em>quote today.</em></h2><p>Start with your name and address — we&#x27;ll follow up the same day with a price for gutter cleaning at your Palo Alto home.</p></div>
-    <form class="qform" action="quote.html" method="GET">
-      <input type="text" name="name" required autocomplete="name" placeholder="Your name" aria-label="Your name" />
-      <input type="text" name="address" required autocomplete="street-address" placeholder="Your Palo Alto address" aria-label="Service address" />
-      <button type="submit">Get My Free Quote →</button>
-      <small>Prefer to talk? Call <a href="tel:7739974886">(773) 997-4886</a></small>
-    </form>
+    <div><h2>Get your Palo Alto <em>quote today.</em></h2><p>Four quick questions, about 30 seconds — we&#x27;ll follow up the same day with a price for gutter cleaning at your Palo Alto home.</p></div>
+    <div data-lead-form data-service="Gutters" data-city="Palo Alto"></div>
   </div>
 </div></section>
 </main>
@@ -340,5 +361,6 @@ footer p{font-size:12.5px;opacity:.65}
   <p>© 2026 Coy Exterior Cleaning · Serving San Francisco, the Peninsula, and San Jose</p>
 </footer>
 <div class="mobile-bar"><a class="call" href="tel:7739974886">Call Us</a><a class="quote" href="#quote">Free Quote</a></div>
+<script src="lead-form.js" defer></script>
 </body>
 </html>

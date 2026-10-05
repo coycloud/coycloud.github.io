@@ -1,6 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18142452119"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18142452119');
+</script>
+<!-- Google Ads conversions: paste the conversion labels from Google Ads (Goals > Conversions) below -->
+<script>
+  window.COY_ADS = {
+    callClick: '',   // e.g. 'AW-18142452119/AbC-D_efG-h12_34-567'
+    quoteLead: ''    // e.g. 'AW-18142452119/XyZ-a_bcD-e98_76-543'
+  };
+  window.coyConversion = function (key) {
+    var id = window.COY_ADS && window.COY_ADS[key];
+    if (id) gtag('event', 'conversion', { send_to: id });
+  };
+  // Count taps/clicks on any phone number link as a call conversion
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="tel:"]');
+    if (a) window.coyConversion('callClick');
+  });
+</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Coy Exterior Cleaning | Window &amp; Pressure Washing in San Francisco, San Jose &amp; the Peninsula</title>
@@ -1341,6 +1366,7 @@
 @media (max-width:900px){.plans{grid-template-columns:1fr;max-width:420px;gap:20px}}
 </style>
 <style>.area-links{max-width:1000px;margin:48px auto 0;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}.area-links a{background:#fff;border-radius:999px;padding:12px 22px;text-decoration:none;color:var(--navy-deep);font-size:14px;font-weight:500;box-shadow:0 4px 14px rgba(30,79,78,.06);transition:transform .25s}.area-links a:hover{transform:translateY(-2px)}.area-links a span{color:var(--rose)}</style>
+<link rel="stylesheet" href="lead-form.css" />
 </head>
 <body>
 
@@ -1396,23 +1422,11 @@
   <div class="section-header fade-up">
     <span class="section-eyebrow">Free Estimate</span>
     <h2>Get your <em>free quote</em> in minutes.</h2>
-    <p>Serving San Francisco, San Jose, and the Peninsula. Start with your name and address — we'll take it from there.</p>
+    <p>Serving San Francisco, San Jose, and the Peninsula. Four quick questions, about 30 seconds. We'll reply the same day with your price.</p>
   </div>
 
-  <div class="quote-embed-form-wrap fade-up">
-    <form class="quote-form" id="home-quote-form" action="quote.html" method="GET">
-      <div class="form-row">
-        <div class="form-group">
-          <label for="home-name">Full Name<span class="required">*</span></label>
-          <input type="text" id="home-name" name="name" required autocomplete="name" placeholder="Jane Smith" />
-        </div>
-        <div class="form-group">
-          <label for="home-address">Service Address<span class="required">*</span></label>
-          <input type="text" id="home-address" name="address" required autocomplete="street-address" placeholder="123 Main St, San Francisco, CA 94102" />
-        </div>
-        <button type="submit" class="submit-btn">Get Quote <span class="arrow">→</span></button>
-      </div>
-    </form>
+  <div class="quote-embed-form-wrap fade-up" style="max-width:640px">
+    <div data-lead-form></div>
   </div>
 </section>
 
@@ -1893,5 +1907,6 @@
   }
 </script>
 
+<script src="lead-form.js" defer></script>
 </body>
 </html>
