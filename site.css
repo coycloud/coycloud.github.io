@@ -1,0 +1,137 @@
+/* Coy Exterior Cleaning: shared styles, loaded last on every page */
+
+body { font-family: 'Source Sans 3', system-ui, -apple-system, sans-serif; font-size: 17px; }
+
+h1, h2, h3, .faq-q, .faq summary, .plan-amt, .flip-price-amount, .price-card .amount,
+.lf-q, .lf .lf-done h3, .quote-title, .chip.price strong {
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-style: normal;
+}
+h1, .hero h1 { font-weight: 800; letter-spacing: -0.025em; line-height: 1.04; }
+h2, .section-header h2 { font-weight: 700; letter-spacing: -0.02em; line-height: 1.12; }
+h3, .flip-front h3, .flip-back h3, .service-card h3, .area-group h3 { font-weight: 700; letter-spacing: -0.01em; }
+h1 em, h2 em, h3 em { font-style: normal; color: inherit; font-weight: inherit; }
+.plan-amt, .flip-price-amount, .price-card .amount { font-weight: 800; letter-spacing: -0.02em; }
+
+.hero-eyebrow, .eyebrow {
+  font-family: inherit; font-style: normal; font-size: 16px; font-weight: 600;
+  letter-spacing: 0; margin-bottom: 10px;
+}
+.eyebrow { color: var(--navy); }
+
+/* Navigation: a plain solid bar instead of a floating glass pill */
+.topbar, .topbar.scrolled {
+  top: 0; left: 0; right: 0; margin: 0;
+  border-radius: 0; border: 0;
+  border-bottom: 1px solid rgba(30, 79, 78, 0.12);
+  background: var(--cream);
+  -webkit-backdrop-filter: none; backdrop-filter: none;
+  box-shadow: none;
+  padding: 8px 40px;
+}
+nav a, .topbar nav a, .mobile-menu a {
+  text-transform: none; letter-spacing: 0; font-size: 16px; font-weight: 600;
+}
+nav a::after { display: none; }
+nav a:hover, .topbar nav a:hover { color: var(--rose); }
+.mobile-menu { top: 64px; left: 0; right: 0; border-radius: 0; box-shadow: 0 8px 20px rgba(30, 79, 78, 0.12); }
+
+/* Buttons */
+.cta-btn, .btn, .pill, nav a.nav-cta, .topbar-call-mobile, .submit-btn, .plan-cta, .flip-cta,
+.lf-next, .mobile-bar a, .qform button {
+  border-radius: 8px; text-transform: none; letter-spacing: 0;
+  font-size: 16px; font-weight: 700; box-shadow: none; animation: none;
+}
+.cta-btn:hover, .btn.primary:hover, nav a.nav-cta:hover, .submit-btn:hover, .plan-cta:hover,
+.lf-next:hover { transform: none; box-shadow: none; }
+.flip-hint { border-radius: 6px; text-transform: none; letter-spacing: 0; font-size: 13px; }
+.hero-scroll { display: none; }
+
+/* Cards and panels: flatter, less rounded, no floaty hover lifts */
+.flip-face, .plan, .price-card, .step, .city-grid a, .review, .review-card, .faq-item, .faq details,
+.quote-form, .quote-band, .video-wrap, .lf, .linklist a, .chip, .area-links a, .hoods span {
+  border-radius: 10px;
+}
+.hero-img { border-radius: 12px; box-shadow: none; }
+.plan, .price-card, .step, .city-grid a, .lf, .quote-form, .faq-item, .faq details {
+  box-shadow: none; border: 1px solid rgba(30, 79, 78, 0.12);
+}
+.plan:hover, .city-grid a:hover, .linklist a:hover, .review-card:hover, .area-links a:hover,
+.reviews-nav button:hover, .hero-rating:hover, .google-badge:hover {
+  transform: none; box-shadow: none;
+}
+.city-grid a:hover, .linklist a:hover { border-color: var(--navy); }
+
+/* No decorative blur blobs or gradient glows */
+.faq::before, .reviews::before { display: none; }
+.plans-sec { background: var(--cream); }
+
+/* Content shows immediately instead of fading in on scroll */
+.fade-up, .fade-up.visible { opacity: 1; transform: none; transition: none; }
+
+/* Sections */
+.services, .reviews, .faq { padding-top: 96px; padding-bottom: 96px; }
+.section-header { margin-bottom: 48px; }
+
+/* Reviews read as plain quotes, not italic serif */
+.review-text, .review p {
+  font-family: inherit; font-style: normal; font-weight: 400; font-size: 17px;
+}
+.review-info .date { font-size: 13px; }
+
+/* FAQ */
+.faq-q, .faq summary { font-weight: 600; font-size: 18px; letter-spacing: -0.01em; }
+.faq-a, .faq .a { font-weight: 400; padding-left: 28px; }
+
+/* Small labels: sentence case instead of spaced-out capitals */
+.step .n {
+  font-family: inherit; font-style: normal; font-size: 14px; font-weight: 700;
+  color: var(--rose); margin-bottom: 4px;
+}
+.flip-price-label, .price-card .label, .plan-per, .lf-count, .lf-field span, .form-group label,
+.city-grid .go {
+  text-transform: none; letter-spacing: 0; font-size: 14px;
+}
+.plan-name { letter-spacing: 0.04em; }
+.note, .flip-note, .plans-note { font-style: normal; }
+
+/* Seasonal strip on the homepage */
+.season-strip {
+  background: #17302f; color: var(--cream);
+  padding: 34px 40px;
+}
+.season-strip .inner {
+  max-width: 1140px; margin: 0 auto;
+  display: flex; gap: 24px; align-items: center; justify-content: space-between; flex-wrap: wrap;
+}
+.season-strip h2 { color: #fff; font-size: clamp(22px, 2.4vw, 28px); margin: 0 0 4px; }
+.season-strip p { color: rgba(244, 237, 228, 0.82); font-size: 16px; margin: 0; max-width: 620px; }
+.season-strip a {
+  flex: none; background: #fff; color: #17302f; text-decoration: none; font-weight: 700;
+  padding: 14px 22px; border-radius: 8px;
+}
+.season-strip a:hover { background: var(--cream); }
+
+@media (max-width: 768px) {
+  .topbar, .topbar.scrolled { top: 0; left: 0; right: 0; margin: 0; border-radius: 0; padding: 8px 16px; }
+  .services, .reviews, .faq { padding-top: 72px; padding-bottom: 72px; }
+  .season-strip { padding: 30px 24px; }
+}
+@media (max-width: 560px) {
+  .topbar, .topbar.scrolled { top: 0; left: 0; right: 0; margin: 0; padding: 6px 12px; }
+  .mobile-menu { top: 58px; left: 0; right: 0; }
+  .mobile-bar a { border-radius: 8px; }
+}
+
+/* Late fixes */
+.btn.primary, .pill { box-shadow: none; }
+.btn.primary:hover { transform: none; }
+.lf-q { font-weight: 700; letter-spacing: -0.01em; }
+.hero-content { max-width: 760px; }
+.hero h1 { font-size: clamp(42px, 5.2vw, 72px); }
+.topbar-call-mobile { font-size: 14px; padding: 9px 16px; white-space: nowrap; }
+@media (max-width: 560px) {
+  .hero h1 { font-size: clamp(34px, 9vw, 48px); }
+}
+nav a.nav-cta.active { color: #fff; }
+.quote-title { font-weight: 800; letter-spacing: -0.025em; }

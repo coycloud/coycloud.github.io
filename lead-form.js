@@ -15,9 +15,13 @@
     'Pressure Washing': '<path d="M3 20h18"/><path d="M6 16l3-9h3"/><path d="M12 7h4l2 3"/><path d="M14 12l-1 3M17 12l1 3M20 11l2 2"/>',
     'Siding / Soft Wash': '<path d="M3 21V10l9-7 9 7v11z"/><path d="M3 14h18M3 17.5h18"/>',
     'Roof Cleaning': '<path d="M2 13l10-8 10 8"/><path d="M5 11v9h14v-9"/><path d="M10 20v-5h4v5"/>',
+    'Christmas Lights': '<path d="M2 5c5 4 15 4 20 0"/><path d="M7 8v2M12 9v2M17 8v2"/><ellipse cx="7" cy="13" rx="2" ry="3"/><ellipse cx="12" cy="14" rx="2" ry="3"/><ellipse cx="17" cy="13" rx="2" ry="3"/>',
     Other: '<circle cx="12" cy="12" r="9"/><path d="M8 12h.01M12 12h.01M16 12h.01"/>'
   };
   var SERVICES = Object.keys(ICONS);
+  var SEASONAL = 'Christmas Lights';
+  var m = new Date().getMonth();
+  var IN_SEASON = m >= 8 || m === 0; /* Sept through Jan */
   var STORIES = ['1 story', '2 stories', '3+ stories', 'Not sure'];
   var TOTAL = 4;
 
@@ -42,7 +46,9 @@
 
       '<fieldset class="lf-step" data-step="1"><legend class="lf-q" tabindex="-1">What can we clean for you?</legend>' +
       '<p class="lf-sub">Pick all that apply.</p><div class="lf-tiles">' +
-      SERVICES.map(function (s) {
+      SERVICES.filter(function (s) {
+        return s !== SEASONAL || IN_SEASON || preService === s || new URLSearchParams(location.search).get('service') === s;
+      }).map(function (s) {
         return '<button type="button" class="lf-tile" data-svc="' + esc(s) + '" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true">' + ICONS[s] + '</svg>' + esc(s) + '</button>';
       }).join('') +
       '</div><p class="lf-err" data-err="1"></p><button type="button" class="lf-next" data-next>Continue →</button></fieldset>' +

@@ -14,14 +14,12 @@
 <script>
   window.COY_ADS = {
     callClick: '',   // e.g. 'AW-18142452119/AbC-D_efG-h12_34-567'
-    quoteLead: '',   // e.g. 'AW-18142452119/XyZ-a_bcD-e98_76-543'
-    guideLead: ''    // free guide downloads
+    quoteLead: ''    // e.g. 'AW-18142452119/XyZ-a_bcD-e98_76-543'
   };
   window.coyConversion = function (key) {
     var id = window.COY_ADS && window.COY_ADS[key];
     if (id) gtag('event', 'conversion', { send_to: id });
   };
-  // Count taps/clicks on any phone number link as a call conversion
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href^="tel:"]');
     if (a) window.coyConversion('callClick');
@@ -30,13 +28,12 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Coy Exterior Cleaning | Window &amp; Pressure Washing in San Francisco, San Jose &amp; the Peninsula</title>
-<meta name="description" content="Professional window cleaning, pressure washing, soft washing and gutter cleaning for homes across San Francisco, San Jose, and the Peninsula. Rated 4.9 stars on Google — get a free, no-obligation quote today." />
+<meta name="description" content="Professional window cleaning, pressure washing, soft washing and gutter cleaning for homes across San Francisco, San Jose, and the Peninsula. Rated 4.9 stars on Google, get a free, no-obligation quote today." />
 <meta name="robots" content="index, follow" />
 <meta name="geo.region" content="US-CA" />
 <meta name="geo.placename" content="San Francisco Bay Area" />
 <link rel="canonical" href="https://www.coyexteriorcleaning.com/" />
 
-<!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Coy Exterior Cleaning" />
 <meta property="og:title" content="Coy Exterior Cleaning | Window & Pressure Washing in the Bay Area" />
@@ -45,7 +42,6 @@
 <meta property="og:image" content="https://www.coyexteriorcleaning.com/hero.jpg" />
 <meta property="og:locale" content="en_US" />
 
-<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Coy Exterior Cleaning | Bay Area Window & Pressure Washing" />
 <meta name="twitter:description" content="Professional window cleaning, pressure washing, soft washing and gutter cleaning serving San Francisco, San Jose, and the Peninsula." />
@@ -53,7 +49,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
@@ -61,11 +57,9 @@
   "@type": "HomeAndConstructionBusiness",
   "@id": "https://www.coyexteriorcleaning.com/#business",
   "name": "Coy Exterior Cleaning",
-  "legalName": "Wetlife LLC",
   "alternateName": "Coy Window Cleaning",
   "description": "Coy Exterior Cleaning is a residential window cleaning company serving the San Francisco Bay Area, including San Francisco, the Peninsula, and San Jose / South Bay. Services include interior and exterior window cleaning, screen cleaning, pressure washing, soft washing, and gutter cleaning. Rated 4.9 stars on Google.",
-  "slogan": "Bay Area exterior cleaning, done right.",
-  "logo": "https://www.coyexteriorcleaning.com/logo.png",
+    "logo": "https://www.coyexteriorcleaning.com/logo.png",
   "image": "https://www.coyexteriorcleaning.com/hero.jpg",
   "address": { "@type": "PostalAddress", "addressRegion": "CA", "addressCountry": "US" },
   "knowsAbout": ["Window cleaning", "Residential window washing", "Screen cleaning", "Pressure washing", "Soft washing", "Gutter cleaning", "Exterior house cleaning"],
@@ -115,7 +109,7 @@
     {
       "@type": "Question",
       "name": "What sets Coy apart from other window cleaners?",
-      "acceptedAnswer": { "@type": "Answer", "text": "We don't rush. Every job follows the same careful routine — pre-rinse, hand-scrub the glass, squeegee with a clean edge, and detail the frames and sills before we leave. The result is glass that actually looks clean up close, not just from the driveway." }
+      "acceptedAnswer": { "@type": "Answer", "text": "We don't rush. Every job follows the same careful routine: pre-rinse, hand-scrub the glass, squeegee with a clean edge, and detail the frames and sills before we leave. The result is glass that actually looks clean up close, not just from the driveway." }
     },
     {
       "@type": "Question",
@@ -125,12 +119,12 @@
     {
       "@type": "Question",
       "name": "How often should I have my windows cleaned?",
-      "acceptedAnswer": { "@type": "Answer", "text": "For most homes, twice a year — once in spring and once in fall — keeps the glass consistently clear. Homes near construction, busy roads, or heavy tree cover often benefit from quarterly visits. We'll recommend a cadence based on what you're dealing with." }
+      "acceptedAnswer": { "@type": "Answer", "text": "For most homes, twice a year, spring and fall, keeps the glass consistently clear. Homes near construction, busy roads, or heavy tree cover often benefit from quarterly visits. We'll recommend a cadence based on what you're dealing with." }
     },
     {
       "@type": "Question",
       "name": "What happens if it rains right after you clean?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Clean glass shrugs off normal rain just fine — water beads and runs without leaving the streaks dirty glass would. If a storm somehow leaves visible spotting within a few days of your service, give us a call and we'll come back to make it right." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Clean glass shrugs off normal rain just fine. Water beads and runs without leaving the streaks dirty glass would. If a storm somehow leaves visible spotting within a few days of your service, give us a call and we'll come back to make it right." }
     },
     {
       "@type": "Question",
@@ -140,7 +134,7 @@
     {
       "@type": "Question",
       "name": "How do I book a cleaning?",
-      "acceptedAnswer": { "@type": "Answer", "text": "The easiest way is to grab a free quote with the button above — tell us a bit about your home and we'll get back to you with a price the same day. You can also call us directly using the Call Us tab at the top of the page." }
+      "acceptedAnswer": { "@type": "Answer", "text": "The easiest way is to grab a free quote with the button above. Tell us a bit about your home and we'll get back to you with a price the same day. You can also call us directly using the Call Us tab at the top of the page." }
     },
     {
       "@type": "Question",
@@ -168,14 +162,13 @@
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     color: var(--ink);
     background: var(--cream);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ====== TOP BAR ====== */
   .topbar {
     position: fixed;
     top: 20px; left: 24px; right: 24px;
@@ -272,7 +265,6 @@
     box-shadow: 0 6px 18px rgba(236, 122, 121, 0.5);
   }
 
-  /* ====== HERO ====== */
   .hero {
     position: relative;
     min-height: 100vh;
@@ -353,7 +345,7 @@
   }
 
   .hero-eyebrow {
-    font-family: 'Fraunces', serif;
+    font-family: 'Archivo', sans-serif;
     font-style: italic;
     font-weight: 400;
     font-size: 22px;
@@ -363,8 +355,8 @@
   }
 
   .hero h1 {
-    font-family: 'Fraunces', serif;
-    font-weight: 300;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 400;
     font-size: clamp(48px, 6.5vw, 88px);
     line-height: 1.02;
     letter-spacing: -0.02em;
@@ -378,7 +370,7 @@
 
   .hero p {
     font-size: 18px;
-    font-weight: 300;
+    font-weight: 400;
     max-width: 480px;
     margin-bottom: 40px;
     color: rgba(244, 237, 228, 0.92);
@@ -444,7 +436,6 @@
     50% { transform: scaleY(0.4); opacity: 0.3; }
   }
 
-  /* ====== QUOTE (embedded, below hero) ====== */
   .quote-embed {
     padding: 90px 48px 100px;
     background: var(--cream);
@@ -477,7 +468,7 @@
     padding: 14px 18px;
     border: 1.5px solid rgba(170, 186, 179, 0.4);
     border-radius: 12px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     font-size: 15px;
     color: var(--ink);
     background: #fafaf7;
@@ -501,7 +492,7 @@
     color: white;
     border: none;
     padding: 18px 32px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     font-weight: 600;
     font-size: 14px;
     letter-spacing: 0.12em;
@@ -523,7 +514,6 @@
   .submit-btn .arrow { transition: transform 0.3s ease; }
   .submit-btn:hover .arrow { transform: translateX(4px); }
 
-  /* ====== VIDEO ====== */
   .video-section {
     padding: 100px 48px;
     background: var(--cream);
@@ -544,7 +534,6 @@
     background: #000;
   }
 
-  /* ====== AREAS SERVED ====== */
   .areas {
     padding: 100px 48px;
     background: #ebe3d8;
@@ -558,7 +547,7 @@
     text-align: center;
   }
   .area-group h3 {
-    font-family: 'Fraunces', serif;
+    font-family: 'Archivo', sans-serif;
     font-weight: 400;
     font-size: 20px;
     color: var(--navy-deep);
@@ -568,11 +557,10 @@
   .area-group p {
     color: #4a6362;
     font-size: 14.5px;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.7;
   }
 
-  /* ====== SERVICES ====== */
   .services {
     padding: 140px 48px;
     background: var(--cream);
@@ -595,8 +583,8 @@
     border-bottom: 1px solid var(--sage-deep);
   }
   .section-header h2 {
-    font-family: 'Fraunces', serif;
-    font-weight: 300;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 400;
     font-size: clamp(36px, 4.5vw, 56px);
     line-height: 1.1;
     letter-spacing: -0.02em;
@@ -610,7 +598,7 @@
   .section-header p {
     font-size: 17px;
     color: #4a6362;
-    font-weight: 300;
+    font-weight: 400;
   }
 
   .services-grid {
@@ -670,7 +658,7 @@
   }
 
   .service-card h3 {
-    font-family: 'Fraunces', serif;
+    font-family: 'Archivo', sans-serif;
     font-weight: 400;
     font-size: 22px;
     color: var(--navy-deep);
@@ -681,7 +669,7 @@
     font-size: 14px;
     color: #5d7674;
     line-height: 1.65;
-    font-weight: 300;
+    font-weight: 400;
   }
 
   /* Photo-backed service card variant */
@@ -720,7 +708,6 @@
     background: rgba(255, 255, 255, 0.25);
   }
 
-  /* ====== FLIP CARDS (services) ====== */
   .flip-card {
     perspective: 1400px;
     cursor: pointer;
@@ -764,7 +751,7 @@
   }
   .flip-front .service-icon svg { stroke: #fff; }
   .flip-front h3, .flip-back h3 {
-    font-family: 'Fraunces', serif;
+    font-family: 'Archivo', sans-serif;
     font-weight: 400;
     font-size: 22px;
     margin-bottom: 12px;
@@ -773,7 +760,7 @@
   .flip-front p {
     font-size: 14px;
     line-height: 1.65;
-    font-weight: 300;
+    font-weight: 400;
     color: rgba(255, 255, 255, 0.9);
   }
   .flip-hint {
@@ -816,7 +803,7 @@
     color: #b85a59;
   }
   .flip-price-amount {
-    font-family: 'Fraunces', serif;
+    font-family: 'Archivo', sans-serif;
     font-size: 30px;
     line-height: 1.15;
     color: var(--navy-deep);
@@ -869,7 +856,6 @@
     .flip-inner { transition: none; }
   }
 
-  /* ====== FAQ ====== */
   .faq {
     padding: 140px 48px;
     background: #ebe3d8;
@@ -921,7 +907,7 @@
   .faq-item summary:hover { background: rgba(236, 122, 121, 0.05); }
 
   .faq-num {
-    font-family: 'Fraunces', serif;
+    font-family: 'Archivo', sans-serif;
     font-style: italic;
     font-weight: 400;
     font-size: 22px;
@@ -932,7 +918,7 @@
   }
   .faq-q {
     flex: 1;
-    font-family: 'Fraunces', serif;
+    font-family: 'Archivo', sans-serif;
     font-weight: 400;
     font-size: 18px;
     color: var(--navy-deep);
@@ -981,10 +967,9 @@
     font-size: 15.5px;
     line-height: 1.7;
     color: #4a6362;
-    font-weight: 300;
+    font-weight: 400;
   }
 
-  /* ====== REVIEWS ====== */
   .reviews {
     padding: 140px 48px;
     background: var(--sage);
@@ -1127,9 +1112,9 @@
     margin-bottom: 16px;
   }
   .review-text {
-    font-family: 'Fraunces', serif;
+    font-family: 'Archivo', sans-serif;
     font-style: italic;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 17px;
     line-height: 1.6;
     color: var(--ink);
@@ -1164,7 +1149,6 @@
     color: #5d7674;
   }
 
-  /* ====== FOOTER ====== */
   footer {
     background: var(--navy-deep);
     color: var(--cream);
@@ -1197,7 +1181,6 @@
   }
   footer .foot-links a:hover { opacity: 1; }
 
-  /* ====== RESPONSIVE ====== */
   @media (max-width: 768px) {
     .topbar {
       padding: 8px 16px;
@@ -1229,7 +1212,6 @@
     .reviews-carousel::after { width: 32px; }
   }
 
-  /* ====== HAMBURGER MENU (mobile only) ====== */
   .hamburger {
     display: none;
     background: transparent;
@@ -1346,15 +1328,14 @@
   }
   .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-/* ====== SERVICE PLANS ====== */
 .plans-sec{position:relative;overflow:hidden;background:radial-gradient(ellipse 60% 55% at 50% 0%,rgba(205,216,212,.75),rgba(205,216,212,0) 70%),var(--cream)}
 .plans-head{text-align:center;max-width:680px;margin:0 auto}
-.plans-head p{font-size:17px;font-weight:300;color:#4a6362}
+.plans-head p{font-size:17px;font-weight: 400;color:#4a6362}
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1080px;margin:48px auto 0}
 .plan{background:#fff;border-radius:22px;padding:44px 32px 36px;text-align:center;display:flex;flex-direction:column;box-shadow:0 18px 50px rgba(30,79,78,.08);transition:transform .3s,box-shadow .3s}
 .plan:hover{transform:translateY(-4px);box-shadow:0 24px 60px rgba(30,79,78,.14)}
 .plan-name{font-size:15px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--rose);margin-bottom:12px}
-.plan-amt{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(40px,4.4vw,50px);line-height:1;letter-spacing:-.01em;color:var(--navy-deep);margin-bottom:10px}
+.plan-amt{font-family:'Archivo',sans-serif;font-weight:500;font-size:clamp(40px,4.4vw,50px);line-height:1;letter-spacing:-.01em;color:var(--navy-deep);margin-bottom:10px}
 .plan-per{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--navy-deep);margin-bottom:30px}
 .plan-perks{list-style:none;display:flex;flex-direction:column;gap:14px;margin:0 auto 34px;text-align:left}
 .plan-perks li{position:relative;padding-left:30px;font-size:15px;color:#3f5a59}
@@ -1369,10 +1350,10 @@
 </style>
 <style>.area-links{max-width:1000px;margin:48px auto 0;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}.area-links a{background:#fff;border-radius:999px;padding:12px 22px;text-decoration:none;color:var(--navy-deep);font-size:14px;font-weight:500;box-shadow:0 4px 14px rgba(30,79,78,.06);transition:transform .25s}.area-links a:hover{transform:translateY(-2px)}.area-links a span{color:var(--rose)}</style>
 <link rel="stylesheet" href="lead-form.css" />
+<link rel="stylesheet" href="site.css" />
 </head>
 <body>
 
-<!-- TOP BAR -->
 <header class="topbar" id="topbar">
   <img src="logo.png" alt="Coy Exterior Cleaning - San Francisco Bay Area window and pressure washing" class="logo" />
   <nav>
@@ -1397,7 +1378,6 @@
   </ul>
 </div>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
@@ -1411,20 +1391,18 @@
         <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
       </svg>
     </a>
-    <div class="hero-eyebrow">Bay Area exterior cleaning, done right.</div>
-    <h1>A brighter home,<br/><em>without the hassle.</em></h1>
-    <p>From spotless windows to revived siding, Coy delivers careful, professional exterior cleaning that makes your home shine — inside the glass and out. Proudly serving San Francisco, San Jose, and the Peninsula.</p>
+    
+    <h1>Bay Area window cleaning,<br/>inside and out</h1>
+    <p>Hand-scrubbed glass, clean screens, and wiped-down frames and sills. We also do pressure washing, soft washing, and gutters. Serving San Francisco, the Peninsula, and San Jose.</p>
     <a href="#get-quote" class="cta-btn">Get a Free Quote <span class="arrow">→</span></a>
   </div>
-  <div class="hero-scroll">Scroll</div>
+  
 </section>
 
-<!-- QUOTE (embedded below hero for conversion) -->
 <section class="quote-embed" id="get-quote">
   <div class="section-header fade-up">
-    <span class="section-eyebrow">Free Estimate</span>
-    <h2>Get your <em>free quote</em> in minutes.</h2>
-    <p>Serving San Francisco, San Jose, and the Peninsula. Four quick questions, about 30 seconds. We'll reply the same day with your price.</p>
+    <h2>Get a free quote</h2>
+    <p>Four quick questions. We'll reply the same day with a price.</p>
   </div>
 
   <div class="quote-embed-form-wrap fade-up" style="max-width:640px">
@@ -1432,12 +1410,10 @@
   </div>
 </section>
 
-<!-- SERVICES -->
 <section class="services" id="services">
   <div class="section-header fade-up">
-    <span class="section-eyebrow">What we do</span>
-    <h2>Care for every <em>surface.</em></h2>
-    <p>Four services, one standard. Trained crews, eco-conscious solutions, and a finish you'll notice the moment you pull into the driveway.</p>
+    <h2>What we do</h2>
+    <p>Window cleaning is most of what we do. We also handle pressure washing, soft washing, and gutters, and can usually take care of them on the same visit.</p>
   </div>
 
   <div class="services-grid">
@@ -1464,7 +1440,7 @@
         <div class="flip-face flip-front" style="background-image: linear-gradient(180deg, rgba(20,35,45,0.35) 0%, rgba(20,35,45,0.75) 100%), url('pressure-washing.jpg');">
           <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2v6"/><path d="M8 8h8l-1 12H9z"/><path d="M6 14c-2 0-3 1-3 3s1 3 3 3"/><path d="M18 14c2 0 3 1 3 3s-1 3-3 3"/></svg></div>
           <h3>Pressure Washing</h3>
-          <p>Driveways, walkways, and patios restored — grime, mildew, and stains lifted with precision.</p>
+          <p>Driveways, walkways, and patios restored, grime, mildew, and stains lifted with precision.</p>
           <span class="flip-hint">Details &amp; pricing <span aria-hidden="true">↻</span></span>
         </div>
         <div class="flip-face flip-back">
@@ -1488,7 +1464,7 @@
         <div class="flip-face flip-back">
           <h3>Soft Washing</h3>
           <div class="flip-price"><span class="flip-price-label">Typical range</span><span class="flip-price-amount">$400–$900</span></div>
-          <ul class="flip-list"><li>Siding, stucco, roofs, and delicate exteriors</li><li>Low pressure — safe for paint and trim</li><li>Biodegradable cleaning solutions</li><li>Removes mildew, algae, and built-up grime</li></ul>
+          <ul class="flip-list"><li>Siding, stucco, roofs, and delicate exteriors</li><li>Low pressure, safe for paint and trim</li><li>Biodegradable cleaning solutions</li><li>Removes mildew, algae, and built-up grime</li></ul>
           <p class="flip-note">Final price depends on home size, number of stories, and siding type.</p>
           <a href="#get-quote" class="flip-cta">Get an exact quote →</a>
         </div>
@@ -1516,23 +1492,29 @@
   </div>
 </section>
 
-<!-- SERVICE PLANS -->
+<section class="season-strip" id="holiday-lights">
+  <div class="inner">
+    <div>
+      <h2>Christmas light installation</h2>
+      <p>This season we're also hanging holiday lights. We install in November and December and take everything down in January.</p>
+    </div>
+    <a href="christmas-light-installation.html">Christmas lights →</a>
+  </div>
+</section>
+
 <section class="services plans-sec" id="plans">
   <div class="section-header fade-up" style="margin-bottom:0">
-    <span class="section-eyebrow">Window Cleaning Plans</span>
-    <h2>Save with a <em>recurring plan.</em></h2>
-    <p>Keep your glass clear year-round. The more often we visit, the more you save on every cleaning.</p>
+    <h2>Recurring window cleaning plans</h2>
+    <p>The more often we come out, the less each cleaning costs.</p>
   </div>
   <div class="plans"><div class="plan fade-up"><div class="plan-name">Monthly</div><div class="plan-amt">$150 OFF</div><div class="plan-per">per cleaning</div><ul class="plan-perks"><li>7 Day Rain Guarantee</li><li>FREE Hard Water Removal</li></ul><a class="plan-cta" href="quote.html?plan=Monthly">Get your quote</a></div><div class="plan fade-up"><div class="plan-name">Quarterly</div><div class="plan-amt">$100 OFF</div><div class="plan-per">per cleaning</div><ul class="plan-perks"><li>7 Day Rain Guarantee</li><li>FREE Hard Water Removal</li></ul><a class="plan-cta" href="quote.html?plan=Quarterly">Get your quote</a></div><div class="plan fade-up"><div class="plan-name">Biannual</div><div class="plan-amt">$50 OFF</div><div class="plan-per">per cleaning</div><ul class="plan-perks"><li class="no"><span class="sr">Not included: </span>7 Day Rain Guarantee</li><li class="no"><span class="sr">Not included: </span>FREE Hard Water Removal</li></ul><a class="plan-cta" href="quote.html?plan=Biannual">Get your quote</a></div></div>
   <p class="plans-note">Discounts apply to recurring window cleaning plans. Ask us for details when you request your quote.</p>
 </section>
 
-<!-- VIDEO -->
 <section class="video-section" id="video">
   <div class="section-header fade-up">
-    <span class="section-eyebrow">See us at work</span>
-    <h2>Watch the <em>Coy</em> difference.</h2>
-    <p>A quick look at how carefully we treat every window, sill, and surface.</p>
+    <h2>See us at work</h2>
+    <p>A short clip of our crew on a job.</p>
   </div>
   <div class="video-wrap fade-up">
     <video controls preload="metadata" poster="coy-video-poster.jpg" playsinline>
@@ -1542,12 +1524,10 @@
   </div>
 </section>
 
-<!-- AREAS SERVED -->
 <section class="areas" id="areas">
   <div class="section-header fade-up">
-    <span class="section-eyebrow">Where we work</span>
-    <h2>Proudly serving the <em>Bay Area.</em></h2>
-    <p>From San Francisco to the South Bay, our crews bring the same careful standard to every neighborhood we visit.</p>
+    <h2>Where we work</h2>
+    
   </div>
   <div class="areas-grid fade-up">
     <div class="area-group">
@@ -1567,10 +1547,10 @@
     <a href="window-cleaning.html">Window cleaning by city <span>→</span></a>
     <a href="pressure-washing.html">Pressure washing by city <span>→</span></a>
     <a href="gutter-cleaning.html">Gutter cleaning by city <span>→</span></a>
+    <a href="christmas-light-installation.html">Christmas lights <span>→</span></a>
   </div>
 </section>
 
-<!-- REVIEWS -->
 <section class="reviews" id="reviews">
   <div class="reviews-inner">
     <div class="reviews-header fade-up">
@@ -1579,8 +1559,7 @@
         <span>4.9 on Google</span>
         <span class="stars">★ ★ ★ ★ ★</span>
       </a>
-      <span class="section-eyebrow">What clients say</span>
-      <h2 style="margin-top: 12px;">Trusted on every <em>block.</em></h2>
+      <h2 style="margin-top: 12px;">What customers say</h2>
     </div>
 
     <div class="reviews-carousel">
@@ -1592,7 +1571,7 @@
           <div class="review-avatar">MS</div>
           <div class="review-info">
             <div class="name">Matthew Steffel</div>
-            <div class="date">5 days ago</div>
+            <div class="date">Google review</div>
           </div>
         </div>
       </div>
@@ -1604,19 +1583,19 @@
           <div class="review-avatar">CC</div>
           <div class="review-info">
             <div class="name">Cathy Cunningham</div>
-            <div class="date">1 week ago</div>
+            <div class="date">Google review</div>
           </div>
         </div>
       </div>
 
       <div class="review-card fade-up">
         <div class="review-stars">★ ★ ★ ★ ★</div>
-        <p class="review-text">"Liam and his crew are amazing! They cleaned my windows which had not been cleaned in many years to bright and shiny — couldn't be happier."</p>
+        <p class="review-text">"Liam and his crew are amazing! They cleaned my windows which had not been cleaned in many years to bright and shiny. Couldn't be happier."</p>
         <div class="review-author">
           <div class="review-avatar">DR</div>
           <div class="review-info">
             <div class="name">Dena Rubnitz</div>
-            <div class="date">1 week ago</div>
+            <div class="date">Google review</div>
           </div>
         </div>
       </div>
@@ -1628,7 +1607,7 @@
           <div class="review-avatar">EM</div>
           <div class="review-info">
             <div class="name">Eric Mendeloff</div>
-            <div class="date">2 weeks ago</div>
+            <div class="date">Google review</div>
           </div>
         </div>
       </div>
@@ -1640,7 +1619,7 @@
           <div class="review-avatar">AO</div>
           <div class="review-info">
             <div class="name">Aidan O'Meara</div>
-            <div class="date">2 weeks ago</div>
+            <div class="date">Google review</div>
           </div>
         </div>
       </div>
@@ -1652,7 +1631,7 @@
           <div class="review-avatar">NS</div>
           <div class="review-info">
             <div class="name">Nikesh Shah</div>
-            <div class="date">2 weeks ago</div>
+            <div class="date">Google review</div>
           </div>
         </div>
       </div>
@@ -1664,7 +1643,7 @@
           <div class="review-avatar">KE</div>
           <div class="review-info">
             <div class="name">Kyle Eggers</div>
-            <div class="date">2 weeks ago</div>
+            <div class="date">Google review</div>
           </div>
         </div>
       </div>
@@ -1676,19 +1655,19 @@
           <div class="review-avatar">LV</div>
           <div class="review-info">
             <div class="name">Leo Vail</div>
-            <div class="date">2 weeks ago</div>
+            <div class="date">Google review</div>
           </div>
         </div>
       </div>
 
       <div class="review-card fade-up">
         <div class="review-stars">★ ★ ★ ★ ★</div>
-        <p class="review-text">"Windows look great! Very friendly and kind — phenomenal customer service as well."</p>
+        <p class="review-text">"Windows look great! Very friendly and kind, phenomenal customer service as well."</p>
         <div class="review-author">
           <div class="review-avatar">CL</div>
           <div class="review-info">
             <div class="name">Cristian Lavariega</div>
-            <div class="date">2 weeks ago</div>
+            <div class="date">Google review</div>
           </div>
         </div>
       </div>
@@ -1700,7 +1679,7 @@
           <div class="review-avatar">RD</div>
           <div class="review-info">
             <div class="name">Rein D.</div>
-            <div class="date">2 weeks ago</div>
+            <div class="date">Google review</div>
           </div>
         </div>
       </div>
@@ -1712,7 +1691,7 @@
           <div class="review-avatar">JR</div>
           <div class="review-info">
             <div class="name">Joey Reinhardt</div>
-            <div class="date">2 weeks ago</div>
+            <div class="date">Google review</div>
           </div>
         </div>
       </div>
@@ -1724,7 +1703,7 @@
           <div class="review-avatar">LW</div>
           <div class="review-info">
             <div class="name">Liam W.</div>
-            <div class="date">2 weeks ago</div>
+            <div class="date">Google review</div>
           </div>
         </div>
       </div>
@@ -1736,7 +1715,7 @@
           <div class="review-avatar">MM</div>
           <div class="review-info">
             <div class="name">Mason M.</div>
-            <div class="date">2 weeks ago</div>
+            <div class="date">Google review</div>
           </div>
         </div>
       </div>
@@ -1754,58 +1733,52 @@
   </div>
 </section>
 
-<!-- FREE GUIDE -->
-<section class="lm-sec" id="free-guide" style="background:#ebe3d8"><div class="lm-wrap"><div data-lead-magnet></div></div></section>
-
-<!-- FAQ -->
 <section class="faq" id="faq">
   <div class="faq-inner">
     <div class="section-header fade-up">
-      <span class="section-eyebrow">Frequently asked</span>
-      <h2>The questions <em>we hear most.</em></h2>
-      <p>Straight answers about how we work, what to expect, and how to book.</p>
+      <h2>Common questions</h2>
+      
     </div>
 
     <div class="faq-list">
       <details class="faq-item fade-up">
-        <summary><span class="faq-num">01</span><span class="faq-q">What sets Coy apart from other window cleaners?</span><span class="faq-icon"></span></summary>
-        <div class="faq-a">We don't rush. Every job follows the same careful routine — pre-rinse, hand-scrub the glass, squeegee with a clean edge, and detail the frames and sills before we leave. The result is glass that actually looks clean up close, not just from the driveway.</div>
+        <summary><span class="faq-q">What sets Coy apart from other window cleaners?</span><span class="faq-icon"></span></summary>
+        <div class="faq-a">We don't rush. Every job follows the same careful routine: pre-rinse, hand-scrub the glass, squeegee with a clean edge, and detail the frames and sills before we leave. The result is glass that actually looks clean up close, not just from the driveway.</div>
       </details>
 
       <details class="faq-item fade-up">
-        <summary><span class="faq-num">02</span><span class="faq-q">Can you reach second and third-story windows?</span><span class="faq-icon"></span></summary>
+        <summary><span class="faq-q">Can you reach second and third-story windows?</span><span class="faq-icon"></span></summary>
         <div class="faq-a">Yes. Our crew is trained on extension ladders and water-fed pole systems for tall or hard-to-reach glass. Safety equipment and proper setup come standard, so even the tricky panes get the same care as the ones at eye level.</div>
       </details>
 
       <details class="faq-item fade-up">
-        <summary><span class="faq-num">03</span><span class="faq-q">How often should I have my windows cleaned?</span><span class="faq-icon"></span></summary>
-        <div class="faq-a">For most homes, twice a year — once in spring and once in fall — keeps the glass consistently clear. Homes near construction, busy roads, or heavy tree cover often benefit from quarterly visits. We'll recommend a cadence based on what you're dealing with.</div>
+        <summary><span class="faq-q">How often should I have my windows cleaned?</span><span class="faq-icon"></span></summary>
+        <div class="faq-a">For most homes, twice a year, spring and fall, keeps the glass consistently clear. Homes near construction, busy roads, or heavy tree cover often benefit from quarterly visits. We'll recommend a cadence based on what you're dealing with.</div>
       </details>
 
       <details class="faq-item fade-up">
-        <summary><span class="faq-num">04</span><span class="faq-q">What happens if it rains right after you clean?</span><span class="faq-icon"></span></summary>
-        <div class="faq-a">Clean glass shrugs off normal rain just fine — water beads and runs without leaving the streaks dirty glass would. If a storm somehow leaves visible spotting within a few days of your service, give us a call and we'll come back to make it right.</div>
+        <summary><span class="faq-q">What happens if it rains right after you clean?</span><span class="faq-icon"></span></summary>
+        <div class="faq-a">Clean glass shrugs off normal rain just fine. Water beads and runs without leaving the streaks dirty glass would. If a storm somehow leaves visible spotting within a few days of your service, give us a call and we'll come back to make it right.</div>
       </details>
 
       <details class="faq-item fade-up">
-        <summary><span class="faq-num">05</span><span class="faq-q">Do you offer discounts for repeat customers?</span><span class="faq-icon"></span></summary>
+        <summary><span class="faq-q">Do you offer discounts for repeat customers?</span><span class="faq-icon"></span></summary>
         <div class="faq-a">Yes. Customers on a recurring schedule get a reduced rate on every visit, and we hold your appointment slot so you don't have to chase the booking each season. Ask us for current pricing when you reach out.</div>
       </details>
 
       <details class="faq-item fade-up">
-        <summary><span class="faq-num">06</span><span class="faq-q">How do I book a cleaning?</span><span class="faq-icon"></span></summary>
-        <div class="faq-a">The easiest way is to grab a free quote with the button above — tell us a bit about your home and we'll get back to you with a price the same day. You can also call us directly using the Call Us tab at the top of the page.</div>
+        <summary><span class="faq-q">How do I book a cleaning?</span><span class="faq-icon"></span></summary>
+        <div class="faq-a">The easiest way is to grab a free quote with the button above. Tell us a bit about your home and we'll get back to you with a price the same day. You can also call us directly using the Call Us tab at the top of the page.</div>
       </details>
 
       <details class="faq-item fade-up">
-        <summary><span class="faq-num">07</span><span class="faq-q">Where in the Bay Area do you offer window cleaning?</span><span class="faq-icon"></span></summary>
+        <summary><span class="faq-q">Where in the Bay Area do you offer window cleaning?</span><span class="faq-icon"></span></summary>
         <div class="faq-a">We provide residential window cleaning across the San Francisco Bay Area: San Francisco, Daly City, and South San Francisco; the Peninsula, including San Mateo, Redwood City, Palo Alto, Menlo Park, and Mountain View; and the South Bay, including San Jose, Santa Clara, Sunnyvale, Cupertino, and Campbell.</div>
       </details>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer id="contact">
   <img src="logo-footer.png" alt="Coy" class="logo-foot" />
   <div class="foot-links">
@@ -1814,21 +1787,20 @@
     <a href="window-cleaning.html">Window Cleaning</a>
     <a href="pressure-washing.html">Pressure Washing</a>
     <a href="gutter-cleaning.html">Gutter Cleaning</a>
+    <a href="christmas-light-installation.html">Christmas Lights</a>
     <a href="tel:7739974886">Call (773) 997-4886</a>
     <a href="mailto:contact.coycloud@gmail.com">contact.coycloud@gmail.com</a>
   </div>
-  <p>Copyright © 2026 Wetlife LLC DBA Coy. All rights reserved.</p>
+  <p>© 2026 Coy Exterior Cleaning. All rights reserved.</p>
 </footer>
 
 <script>
-  // Sticky bar effect
   const bar = document.getElementById('topbar');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) bar.classList.add('scrolled');
     else bar.classList.remove('scrolled');
   });
 
-  // Fade-in on scroll
   const fadeEls = document.querySelectorAll('.fade-up');
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
@@ -1840,7 +1812,6 @@
   }, { threshold: 0.15 });
   fadeEls.forEach(el => io.observe(el));
 
-  // Smart Call Us link — dial on mobile/touch, scroll on desktop
   const callLink = document.getElementById('call-us-link');
   const isMobile = /Android|iPhone|iPad|iPod|Mobile|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
                    || (window.matchMedia && window.matchMedia('(max-width: 768px)').matches);
@@ -1848,7 +1819,6 @@
     callLink.setAttribute('href', 'tel:7739974886');
   }
 
-  // Reviews carousel arrow controls
   const reviewsGrid = document.getElementById('reviews-grid');
   const reviewsPrev = document.getElementById('reviews-prev');
   const reviewsNext = document.getElementById('reviews-next');
@@ -1867,7 +1837,6 @@
     });
   }
 
-  // Service flip cards — tap/click or Enter/Space to flip
   document.querySelectorAll('.flip-card').forEach(card => {
     const toggle = () => {
       const on = card.classList.toggle('flipped');
@@ -1883,7 +1852,6 @@
     });
   });
 
-  // Hamburger menu toggle
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
   if (hamburger && mobileMenu) {
@@ -1892,19 +1860,16 @@
       mobileMenu.classList.toggle('open');
       hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
-    // Close menu when a link inside is clicked
     mobileMenu.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
         hamburger.classList.remove('open');
         mobileMenu.classList.remove('open');
         hamburger.setAttribute('aria-expanded', 'false');
-        // Also set tel: on the mobile menu Call Us link
         if (a.getAttribute('href') === '#contact' && isMobile) {
           a.setAttribute('href', 'tel:7739974886');
         }
       });
     });
-    // Set tel on mobile menu Call Us link upfront if mobile
     if (isMobile) {
       const mobileCallLink = mobileMenu.querySelector('a[href="#contact"]');
       if (mobileCallLink) mobileCallLink.setAttribute('href', 'tel:7739974886');
@@ -1913,6 +1878,5 @@
 </script>
 
 <script src="lead-form.js" defer></script>
-<script src="lead-magnet.js" defer></script>
 </body>
 </html>
