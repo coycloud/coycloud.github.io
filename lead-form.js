@@ -6,8 +6,8 @@
   'use strict';
 
   var WEB3FORMS_KEY = '62897e4a-224e-4a36-a005-62fe6b1bacce';
-  var PHONE_TEL = '7739974886';
-  var PHONE_TXT = '(773) 997-4886';
+  var PHONE_TEL = '6502672936';
+  var PHONE_TXT = '(650) 267-2936';
 
   var ICONS = {
     Windows: '<rect x="3" y="3" width="18" height="18" rx="1.5"/><path d="M12 3v18M3 12h18"/>',
