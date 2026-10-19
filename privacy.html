@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18142452119"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18142452119');
+</script>
+<!-- Google Ads conversions: paste the conversion labels from Google Ads (Goals > Conversions) below -->
+<script>
+  window.COY_ADS = {
+    callClick: '',   // e.g. 'AW-18142452119/AbC-D_efG-h12_34-567'
+    quoteLead: ''    // e.g. 'AW-18142452119/XyZ-a_bcD-e98_76-543'
+  };
+  window.coyConversion = function (key) {
+    var id = window.COY_ADS && window.COY_ADS[key];
+    if (id) gtag('event', 'conversion', { send_to: id });
+  };
+  // Count taps/clicks on any phone number link as a call conversion
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="tel:"]');
+    if (a) window.coyConversion('callClick');
+  });
+</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy Policy | Coy Exterior Cleaning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<meta name="description" content="How Coy Exterior Cleaning collects, uses, and protects your information, including cookies and Google Ads, and the privacy choices you have." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://www.coyexteriorcleaning.com/privacy.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Coy Exterior Cleaning" />
+<meta property="og:title" content="Privacy Policy | Coy Exterior Cleaning" />
+<meta property="og:url" content="https://www.coyexteriorcleaning.com/privacy.html" />
+<style>
+  :root {
+    --sage: #cdd8d4;
+    --sage-deep: #aabab3;
+    --navy: #2e706f;
+    --navy-deep: #1e4f4e;
+    --rose: #ec7a79;
+    --rose-soft: #fce5e4;
+    --cream: #f4ede4;
+    --ink: #1e4f4e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  /* ====== TOP BAR (matching index.html) ====== */
+  .topbar {
+    position: fixed;
+    top: 20px; left: 24px; right: 24px;
+    z-index: 100;
+    padding: 10px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(205, 216, 212, 0.45);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 999px;
+    transition: all 0.4s ease;
+  }
+  .topbar.scrolled {
+    background: rgba(205, 216, 212, 0.75);
+    box-shadow: 0 8px 32px rgba(30, 79, 78, 0.12);
+    top: 14px;
+    padding: 6px 28px;
+  }
+  .logo { height: 96px; transition: height 0.4s ease; }
+  .topbar.scrolled .logo { height: 68px; }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+  nav a {
+    text-decoration: none;
+    color: var(--navy-deep);
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+  }
+  nav a:hover { color: var(--rose); }
+  nav a.nav-cta {
+    background: var(--rose);
+    color: white;
+    padding: 10px 22px;
+    border-radius: 999px;
+    transition: all 0.3s ease;
+  }
+  nav a.nav-cta:hover {
+    background: var(--navy-deep);
+    color: white;
+    transform: translateY(-2px);
+  }
+  nav a.active { color: var(--rose); }
+
+  /* ====== PRIVACY PAGE ====== */
+  .policy-section { padding: 180px 24px 40px; max-width: 820px; margin: 0 auto; }
+  .section-eyebrow { display: inline-block; font-family: 'Fraunces', serif; font-style: italic; font-size: 18px; color: var(--rose); margin-bottom: 16px; }
+  .policy-title { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(40px, 6vw, 68px); line-height: 1.05; color: var(--navy-deep); margin-bottom: 14px; }
+  .policy-title em { font-style: italic; color: var(--rose); }
+  .policy-updated { font-size: 14px; color: #6b8180; margin-bottom: 40px; }
+  .policy-card { background: white; border-radius: 28px; padding: 48px; box-shadow: 0 12px 40px rgba(30, 79, 78, 0.08); border: 1px solid rgba(205, 216, 212, 0.5); }
+  .policy-intro { font-size: 17px; color: #3f5a59; margin-bottom: 28px; }
+  .policy-toc { display: flex; flex-wrap: wrap; gap: 8px; padding: 20px; background: #fafaf7; border: 1px solid rgba(170, 186, 179, 0.35); border-radius: 16px; margin-bottom: 12px; }
+  .policy-toc a { font-size: 13px; color: var(--navy-deep); text-decoration: none; padding: 6px 12px; border-radius: 999px; background: white; border: 1px solid rgba(170, 186, 179, 0.45); transition: all 0.2s ease; }
+  .policy-toc a:hover { border-color: var(--rose); color: var(--rose); }
+  .policy-card h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 26px; color: var(--navy-deep); margin: 40px 0 12px; scroll-margin-top: 130px; }
+  .policy-card h3 { font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); margin: 22px 0 8px; }
+  .policy-card p { color: #3f5a59; font-size: 15.5px; margin-bottom: 14px; }
+  .policy-card ul { margin: 0 0 16px 0; padding-left: 22px; }
+  .policy-card li { color: #3f5a59; font-size: 15.5px; margin-bottom: 8px; }
+  .policy-card li::marker { color: var(--rose); }
+  .policy-card a { color: var(--navy); text-decoration: underline; text-underline-offset: 3px; }
+  .policy-card a:hover { color: var(--rose); }
+  .policy-card .policy-toc a { text-decoration: none; }
+  .policy-contact { background: var(--rose-soft); border-radius: 16px; padding: 22px 24px; display: flex; flex-wrap: wrap; gap: 8px 48px; }
+  .policy-contact p { margin: 0; color: var(--navy-deep); }
+  @media (max-width: 900px) { .policy-section { padding: 130px 20px 30px; } .policy-card { padding: 32px 24px; } }
+  @media (max-width: 560px) { .policy-section { padding: 110px 16px 24px; } .policy-card { padding: 26px 18px; border-radius: 20px; } .policy-card h2 { font-size: 22px; } }
+
+  /* ====== FOOTER ====== */
+  footer {
+    background: var(--navy-deep);
+    color: var(--sage);
+    padding: 60px 40px 30px;
+    text-align: center;
+    margin-top: 60px;
+  }
+  .logo-foot {
+    height: 70px;
+    margin-bottom: 24px;
+    filter: brightness(1.4);
+  }
+  .foot-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+  .foot-links a {
+    color: var(--sage);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+  }
+  .foot-links a:hover { color: var(--rose); }
+  footer p {
+    font-size: 12px;
+    color: rgba(205, 216, 212, 0.6);
+  }
+
+  /* ====== HAMBURGER (mobile) ====== */
+  .hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    z-index: 102;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #1e4f4e;
+    margin: 5px auto;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 12px;
+    right: 12px;
+    background: rgba(244, 237, 228, 0.97);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 12px 40px rgba(30, 79, 78, 0.18);
+    z-index: 99;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+  }
+  .mobile-menu.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .mobile-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 0;
+    margin: 0;
+  }
+  .mobile-menu a {
+    display: block;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: #1e4f4e;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 12px;
+    transition: background 0.2s ease;
+  }
+  .mobile-menu a:hover, .mobile-menu a:active {
+    background: rgba(205, 216, 212, 0.5);
+  }
+
+  /* ====== RESPONSIVE ====== */
+  @media (max-width: 900px) {
+    .topbar {
+      padding: 8px 16px;
+      top: 12px;
+      left: 12px;
+      right: 12px;
+      border-radius: 999px;
+      flex-wrap: nowrap;
+    }
+    .topbar.scrolled { padding: 8px 16px; top: 10px; }
+    .logo { height: 56px; }
+    .topbar.scrolled .logo { height: 48px; }
+    /* Hide desktop nav, show hamburger */
+    nav { display: none; }
+    .hamburger { display: block; }
+    .quote-section { padding: 130px 20px 60px; }
+    .quote-form { padding: 32px 24px; }
+  }
+  @media (max-width: 720px) {
+    .logo { height: 48px; }
+    .topbar.scrolled .logo { height: 44px; }
+    .topbar { padding: 8px 14px; }
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+    .services-checklist { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .topbar { padding: 6px 12px; top: 10px; left: 10px; right: 10px; }
+    .logo { height: 44px; }
+    .topbar.scrolled .logo { height: 40px; }
+    .mobile-menu { top: 70px; left: 10px; right: 10px; }
+    .quote-section { padding: 110px 16px 50px; }
+    .quote-form { padding: 28px 20px; }
+    .quote-lead { font-size: 16px; margin-bottom: 36px; }
+    .submit-btn { width: 100%; justify-content: center; padding: 16px 28px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<header class="topbar" id="topbar">
+  <img src="logo.png" alt="Coy" class="logo" id="logo-img" />
+  <nav>
+    <ul>
+      <li><a href="quote.html" class="nav-cta">Get a Quote</a></li>
+      <li><a href="index.html#services">Our Services</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="index.html#reviews">Reviews</a></li>
+    </ul>
+  </nav>
+  <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<div class="mobile-menu" id="mobile-menu">
+  <ul>
+    <li><a href="quote.html">Get a Quote</a></li>
+    <li><a href="index.html#services">Our Services</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="index.html#reviews">Reviews</a></li>
+  </ul>
+</div>
+
+<!-- PRIVACY POLICY -->
+<main class="policy-section">
+  <span class="section-eyebrow">Legal</span>
+  <h1 class="policy-title">Privacy <em>Policy</em></h1>
+  <p class="policy-updated">Effective date: October 19, 2026</p>
+
+  <div class="policy-card">
+    <p class="policy-intro">Coy Exterior Cleaning ("Coy," "we," "us") provides window cleaning, pressure washing, soft washing, and gutter cleaning across the San Francisco Bay Area. This policy explains what information we collect when you visit <strong>coyexteriorcleaning.com</strong> or contact us, how we use it, and the choices you have. We keep it simple: we collect only what we need to quote and complete your job, and we never sell your personal information.</p>
+
+    <div class="policy-toc" role="navigation" aria-label="On this page">
+      <a href="#collect">Information we collect</a>
+      <a href="#use">How we use it</a>
+      <a href="#ads">Cookies, analytics &amp; advertising</a>
+      <a href="#share">How we share it</a>
+      <a href="#retention">How long we keep it</a>
+      <a href="#choices">Your choices</a>
+      <a href="#california">California residents</a>
+      <a href="#security">Security</a>
+      <a href="#children">Children</a>
+      <a href="#changes">Changes</a>
+      <a href="#contact">Contact us</a>
+    </div>
+
+    <h2 id="collect">1. Information we collect</h2>
+    <h3>Information you give us</h3>
+    <p>When you request a quote, call, text, or email us, we collect the information you choose to provide, which may include:</p>
+    <ul>
+      <li><strong>Contact details</strong> — your name, phone number, and email address.</li>
+      <li><strong>Property details</strong> — your service address, the number of stories, and the services you're interested in.</li>
+      <li><strong>Notes you add</strong> — gate codes, timing preferences, or anything else you type into the "Anything else?" box or send us.</li>
+      <li><strong>Job and payment records</strong> — appointment dates, services performed, and invoices. Card payments are handled by our payment processor; we do not store full card numbers.</li>
+    </ul>
+    <h3>Information collected automatically</h3>
+    <p>When you visit our website, our advertising and analytics tools (described in Section 3) may automatically collect technical information such as your IP address, browser and device type, pages viewed, the ad or website that referred you, and actions you take on the site — for example, tapping our phone number or submitting a quote request.</p>
+
+    <h2 id="use">2. How we use your information</h2>
+    <ul>
+      <li>To prepare and send your quote, schedule service, and complete the work.</li>
+      <li>To contact you by phone, text, or email about your request, appointment, or invoice.</li>
+      <li>To follow up after a job (for example, to ask for a review or offer seasonal service). You can ask us to stop at any time.</li>
+      <li>To measure how well our ads and website work, so we can improve them.</li>
+      <li>To prevent spam and fraud, and to comply with legal obligations.</li>
+    </ul>
+    <p>We will not send you marketing text messages unless you have agreed to receive them. Message and data rates may apply to any texts we exchange.</p>
+
+    <h2 id="ads">3. Cookies, analytics &amp; advertising</h2>
+    <p>Our website uses cookies and similar technologies, including the <strong>Google tag</strong> for <strong>Google Ads</strong>. These tools help us:</p>
+    <ul>
+      <li><strong>Measure conversions</strong> — understand when someone who clicked one of our ads goes on to request a quote or call us.</li>
+      <li><strong>Remarketing</strong> — show our ads to people who previously visited our website, on Google Search and across sites and apps in Google's network.</li>
+    </ul>
+    <p>Third-party vendors, including Google, use cookies to serve ads based on your prior visits to our website and other websites. Google's use of advertising cookies enables it and its partners to serve ads to you based on your visits to our site and/or other sites on the Internet.</p>
+    <p>You can opt out of personalized advertising from Google at any time by visiting <a href="https://adssettings.google.com" target="_blank" rel="noopener">Google Ads Settings</a>. You can also opt out of many third-party vendors' use of cookies for personalized advertising at <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener">aboutads.info</a>. To learn more about how Google uses data, see <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses information from sites that use its services</a>.</p>
+    <p>Most browsers also let you block or delete cookies in their settings. If you do, parts of the site will still work, but we may not be able to tell whether our ads are working.</p>
+    <p>Our pages also load fonts from Google Fonts, which means your browser connects to Google's servers and shares your IP address with Google when a page loads.</p>
+
+    <h2 id="share">4. How we share your information</h2>
+    <p><strong>We do not sell your personal information.</strong> We share it only as needed to run our business:</p>
+    <ul>
+      <li><strong>Service providers</strong> who work on our behalf — for example, our form-delivery provider (Web3Forms), which emails quote requests to us; our email, phone, and scheduling tools; and our payment processor.</li>
+      <li><strong>Advertising and analytics partners</strong> such as Google, as described in Section 3.</li>
+      <li><strong>Legal and safety</strong> — when required by law, or to protect our rights, our customers, or others.</li>
+      <li><strong>Business transfers</strong> — if our business is sold or merged, customer records may transfer to the new owner, who must honor this policy.</li>
+    </ul>
+
+    <h2 id="retention">5. How long we keep it</h2>
+    <p>We keep quote requests and customer records for as long as we need them to serve you, keep accurate business and tax records, and handle any warranty or service questions — generally no longer than seven years after your last service. Quote requests that don't turn into a job are deleted when they are no longer useful to us.</p>
+
+    <h2 id="choices">6. Your choices</h2>
+    <ul>
+      <li><strong>Access, correct, or delete</strong> — email us and we'll send you a copy of your information, fix it, or delete it (unless we need to keep it for legal or tax reasons).</li>
+      <li><strong>Stop follow-ups</strong> — reply "STOP" to a text, or tell us by phone or email, and we'll stop contacting you except about service you've booked.</li>
+      <li><strong>Ad personalization</strong> — use the opt-out links in Section 3 or your browser's cookie settings.</li>
+    </ul>
+
+    <h2 id="california">7. California residents</h2>
+    <p>We are based in and serve California, and we want you to understand your privacy rights under California law, including the California Consumer Privacy Act (CCPA) as amended by the CPRA, to the extent it applies to us.</p>
+    <ul>
+      <li><strong>Categories we collect:</strong> identifiers (name, phone, email, address, IP address), customer records, commercial information (services requested or purchased), and internet activity (pages viewed and interactions with our site and ads). Sources are you, your device, and our advertising partners.</li>
+      <li><strong>Sale and "sharing":</strong> we do not sell personal information for money. Our use of Google Ads remarketing may count as "sharing" for cross-context behavioral advertising under California law. You can opt out using the Google links in Section 3, by enabling a <strong>Global Privacy Control</strong> signal in your browser, or by emailing us.</li>
+      <li><strong>Your rights:</strong> to know what we collect, to request access, correction, or deletion, and to opt out of sharing. We will not discriminate against you for using these rights.</li>
+      <li><strong>Sensitive information:</strong> we do not collect sensitive personal information as defined by California law.</li>
+      <li><strong>Making a request:</strong> email or call us using the details below. We'll confirm your identity by matching the name and phone or email on file, and respond within 45 days. You may use an authorized agent.</li>
+      <li><strong>Shine the Light:</strong> we do not share personal information with third parties for their own direct marketing.</li>
+    </ul>
+
+    <h2 id="security">8. Security</h2>
+    <p>We use reasonable safeguards to protect your information, including secure (HTTPS) connections on our website and limiting access to customer records. No method of transmission or storage is perfectly secure, so we can't guarantee absolute security.</p>
+
+    <h2 id="children">9. Children</h2>
+    <p>Our services are for homeowners and property managers. We do not knowingly collect personal information from children under 16. If you believe a child has sent us information, contact us and we'll delete it.</p>
+
+    <h2 id="changes">10. Changes to this policy</h2>
+    <p>We may update this policy from time to time. When we do, we'll change the effective date at the top of this page. Significant changes will be noted on this page.</p>
+
+    <h2 id="contact">11. Contact us</h2>
+    <p>Questions or privacy requests? We're happy to help.</p>
+    <div class="policy-contact">
+      <p><strong>Coy Exterior Cleaning</strong><br>San Francisco Bay Area, California</p>
+      <p>Email: <a href="mailto:contact.coycloud@gmail.com">contact.coycloud@gmail.com</a><br>Phone: <a href="tel:7739974886">(773) 997-4886</a></p>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <img src="logo-footer.png" alt="Coy" class="logo-foot" id="logo-foot-img" />
+  <div class="foot-links">
+    <a href="index.html#services">Services</a>
+    <a href="index.html#reviews">Reviews</a>
+    <a href="about.html">About</a>
+    <a href="tel:7739974886">Call (773) 997-4886</a>
+    <a href="mailto:contact.coycloud@gmail.com">contact.coycloud@gmail.com</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </div>
+  <p>© 2026 Coy Exterior Cleaning. All rights reserved.</p>
+</footer>
+
+<script>
+  // Copy logo from index.html so we keep the visual consistency without re-embedding huge base64
+  // (If the user opens quote.html directly they'll need the logo embedded — we'll inject it via fetch from index.html in dev,
+  //  but for production safety we leave src empty and let the browser show alt text, OR you can paste the base64 from index.html.)
+
+  // For now, hide broken image if no src is set
+  ['logo-img', 'logo-foot-img'].forEach(id => {
+    const img = document.getElementById(id);
+    if (img && !img.src) {
+      // Replace with text logo as fallback
+      const span = document.createElement('span');
+      span.textContent = 'Coy';
+      span.style.cssText = 'font-family:\'Fraunces\',serif;font-size:' + (id === 'logo-img' ? '38px' : '28px') + ';font-style:italic;color:' + (id === 'logo-img' ? 'var(--navy-deep)' : 'var(--sage)') + ';font-weight:400;';
+      img.replaceWith(span);
+    }
+  });
+
+  // Sticky bar
+  const bar = document.getElementById('topbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) bar.classList.add('scrolled');
+    else bar.classList.remove('scrolled');
+  });
+
+  // Hamburger toggle
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+</script>
+
+</body>
+</html>

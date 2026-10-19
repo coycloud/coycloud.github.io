@@ -6,8 +6,8 @@
   'use strict';
 
   var WEB3FORMS_KEY = '62897e4a-224e-4a36-a005-62fe6b1bacce';
-  var PHONE_TEL = '6502672936';
-  var PHONE_TXT = '(650) 267-2936';
+  var PHONE_TEL = '7739974886';
+  var PHONE_TXT = '(773) 997-4886';
 
   var ICONS = {
     Windows: '<rect x="3" y="3" width="18" height="18" rx="1.5"/><path d="M12 3v18M3 12h18"/>',
@@ -15,13 +15,9 @@
     'Pressure Washing': '<path d="M3 20h18"/><path d="M6 16l3-9h3"/><path d="M12 7h4l2 3"/><path d="M14 12l-1 3M17 12l1 3M20 11l2 2"/>',
     'Siding / Soft Wash': '<path d="M3 21V10l9-7 9 7v11z"/><path d="M3 14h18M3 17.5h18"/>',
     'Roof Cleaning': '<path d="M2 13l10-8 10 8"/><path d="M5 11v9h14v-9"/><path d="M10 20v-5h4v5"/>',
-    'Christmas Lights': '<path d="M2 5c5 4 15 4 20 0"/><path d="M7 8v2M12 9v2M17 8v2"/><ellipse cx="7" cy="13" rx="2" ry="3"/><ellipse cx="12" cy="14" rx="2" ry="3"/><ellipse cx="17" cy="13" rx="2" ry="3"/>',
     Other: '<circle cx="12" cy="12" r="9"/><path d="M8 12h.01M12 12h.01M16 12h.01"/>'
   };
   var SERVICES = Object.keys(ICONS);
-  var SEASONAL = 'Christmas Lights';
-  var m = new Date().getMonth();
-  var IN_SEASON = m >= 8 || m === 0; /* Sept through Jan */
   var STORIES = ['1 story', '2 stories', '3+ stories', 'Not sure'];
   var TOTAL = 4;
 
@@ -46,9 +42,7 @@
 
       '<fieldset class="lf-step" data-step="1"><legend class="lf-q" tabindex="-1">What can we clean for you?</legend>' +
       '<p class="lf-sub">Pick all that apply.</p><div class="lf-tiles">' +
-      SERVICES.filter(function (s) {
-        return s !== SEASONAL || IN_SEASON || preService === s || new URLSearchParams(location.search).get('service') === s;
-      }).map(function (s) {
+      SERVICES.map(function (s) {
         return '<button type="button" class="lf-tile" data-svc="' + esc(s) + '" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true">' + ICONS[s] + '</svg>' + esc(s) + '</button>';
       }).join('') +
       '</div><p class="lf-err" data-err="1"></p><button type="button" class="lf-next" data-next>Continue →</button></fieldset>' +
@@ -71,7 +65,8 @@
       '<label class="lf-field"><span>Email <i>(optional)</i></span><input type="email" name="email" autocomplete="email" placeholder="jane@example.com" /></label>' +
       (withDetails ? '<label class="lf-field"><span>Anything else? <i>(optional)</i></span><textarea name="details" placeholder="Gate code, special requests, preferred timing…"></textarea></label>' : '') +
       '<input type="checkbox" name="botcheck" class="lf-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />' +
-      '<p class="lf-err" data-err="4"></p><button type="submit" class="lf-next lf-submit">Get My Free Quote →</button></fieldset>' +
+      '<p class="lf-err" data-err="4"></p><button type="submit" class="lf-next lf-submit">Get My Free Quote →</button>' +
+      '<p class="lf-legal">By submitting, you agree we may call, text, or email you about your quote. See our <a href="privacy.html">Privacy Policy</a>.</p></fieldset>' +
 
       '<div class="lf-done" role="status"><div class="lf-check"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>' +
       '<h3>Thanks<span class="lf-fname"></span>!</h3><p>We got your request and will reach out today with your quote. Need us sooner? Call <a href="tel:' + PHONE_TEL + '">' + PHONE_TXT + '</a>.</p></div>' +

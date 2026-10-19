@@ -1,6 +1,7 @@
+/* ====== Coy multi-step lead form (lead-form.js) ====== */
 .lf{--lf-navy:#1e4f4e;--lf-teal:#2e706f;--lf-rose:#ec7a79;--lf-rose-d:#d05f5e;--lf-rose-soft:#fce5e4;--lf-sage:#cdd8d4;--lf-muted:#4a6362;
   position:relative;background:#fff;color:var(--lf-navy);border-radius:24px;padding:30px 32px 26px;box-shadow:0 18px 50px rgba(30,79,78,.12);
-  font-family:'Source Sans 3',sans-serif;text-align:left;line-height:1.5;scroll-margin-top:110px}
+  font-family:'Inter',sans-serif;text-align:left;line-height:1.5;scroll-margin-top:110px}
 .lf *{box-sizing:border-box}
 .lf-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;min-height:22px}
 .lf-count{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--lf-teal)}
@@ -14,10 +15,9 @@
 .lf-step.active{display:block;animation:lfIn .35s ease}
 @keyframes lfIn{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.lf-step.active{animation:none}}
-.lf-q{display:block;font-family:'Archivo',sans-serif;font-weight:400;font-size:clamp(22px,2.4vw,27px);line-height:1.2;color:var(--lf-navy);margin:0 0 6px;outline:none;padding:0}
+.lf-q{display:block;font-family:'Fraunces',serif;font-weight:400;font-size:clamp(22px,2.4vw,27px);line-height:1.2;color:var(--lf-navy);margin:0 0 6px;outline:none;padding:0}
 .lf p.lf-sub{font-size:14px;color:var(--lf-muted);margin:0 0 18px}
 .lf-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.lf-tiles .lf-tile:last-child:nth-child(3n+1){grid-column:1/-1;flex-direction:row;min-height:0}
 .lf-opts{display:grid;gap:10px}
 .lf-opts.two{grid-template-columns:1fr 1fr}
 .lf-tile,.lf-opt{position:relative;display:flex;align-items:center;gap:10px;width:100%;background:#fff;border:1.5px solid #dbe3e1;border-radius:14px;
@@ -51,13 +51,15 @@
 .lf.sent .lf-top,.lf.sent .lf-bar,.lf.sent .lf-step,.lf.sent .lf-foot{display:none}
 .lf-done .lf-check{width:58px;height:58px;margin:0 auto 14px;border-radius:50%;background:var(--lf-rose-soft);display:grid;place-items:center}
 .lf-done .lf-check svg{width:28px;height:28px;stroke:var(--lf-rose);fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
-.lf .lf-done h3{font-family:'Archivo',sans-serif;font-weight:400;font-size:26px;color:var(--lf-navy);margin:0 0 8px}
+.lf .lf-done h3{font-family:'Fraunces',serif;font-weight:400;font-size:26px;color:var(--lf-navy);margin:0 0 8px}
 .lf .lf-done p{font-size:15px;color:var(--lf-muted);margin:0 auto;max-width:380px}
 .lf-done a{color:var(--lf-navy);font-weight:600}
 @media (max-width:560px){
   .lf{padding:24px 18px 20px;border-radius:20px}
   .lf-tiles{grid-template-columns:repeat(2,1fr)}
-  .lf-tiles .lf-tile:last-child:nth-child(3n+1){grid-column:auto;flex-direction:column;min-height:92px}
-  .lf-tiles .lf-tile:last-child:nth-child(odd){grid-column:1/-1;flex-direction:row;min-height:0}
   .lf-opts.two{grid-template-columns:1fr}
 }
+
+/* consent / privacy note under submit */
+.lf .lf-legal{margin:12px 0 0;font-size:12px;line-height:1.5;color:#6b8180;text-align:center}
+.lf .lf-legal a{color:inherit;text-decoration:underline;text-underline-offset:2px}
