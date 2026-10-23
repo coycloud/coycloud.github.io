@@ -59,7 +59,3 @@
   .lf-tiles{grid-template-columns:repeat(2,1fr)}
   .lf-opts.two{grid-template-columns:1fr}
 }
-
-/* consent / privacy note under submit */
-.lf .lf-legal{margin:12px 0 0;font-size:12px;line-height:1.5;color:#6b8180;text-align:center}
-.lf .lf-legal a{color:inherit;text-decoration:underline;text-underline-offset:2px}
