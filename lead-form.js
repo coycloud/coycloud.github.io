@@ -1,6 +1,8 @@
 /* Coy Exterior Cleaning — multi-step ("breadcrumb") lead form.
    Mount with: <div data-lead-form data-service="Windows" data-city="Palo Alto"></div>
    Optional:   data-details="1" adds an "anything else?" box on the last step.
+               data-skip="1" opens on step 2 when data-service is set (service already chosen).
+   Ad tracking (utm_* and gclid in the page URL) is added to every lead automatically.
    Leads are emailed through Web3Forms (same key as before). */
 (function () {
   'use strict';
@@ -15,7 +17,6 @@
     'Pressure Washing': '<path d="M3 20h18"/><path d="M6 16l3-9h3"/><path d="M12 7h4l2 3"/><path d="M14 12l-1 3M17 12l1 3M20 11l2 2"/>',
     'Siding / Soft Wash': '<path d="M3 21V10l9-7 9 7v11z"/><path d="M3 14h18M3 17.5h18"/>',
     'Roof Cleaning': '<path d="M2 13l10-8 10 8"/><path d="M5 11v9h14v-9"/><path d="M10 20v-5h4v5"/>',
-    'Permanent Lighting': '<path d="M2 11l10-7 10 7"/><circle cx="5" cy="14" r="1.3"/><circle cx="9.5" cy="14" r="1.3"/><circle cx="14.5" cy="14" r="1.3"/><circle cx="19" cy="14" r="1.3"/><path d="M5 18v3M12 18v3M19 18v3"/>',
     Other: '<circle cx="12" cy="12" r="9"/><path d="M8 12h.01M12 12h.01M16 12h.01"/>'
   };
   var SERVICES = Object.keys(ICONS);
@@ -166,6 +167,11 @@
       fd.append('stories', state.stories);
       if (F.details && F.details.value.trim()) fd.append('details', F.details.value.trim());
       fd.append('page', location.pathname.split('/').pop() || 'index.html');
+      var ad = new URLSearchParams(location.search), adParts = [];
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'].forEach(function (k) {
+        var v = ad.get(k); if (v) { fd.append(k, v.slice(0, 200)); adParts.push(k + '=' + v.slice(0, 80)); }
+      });
+      if (adParts.length) fd.append('ad_source', adParts.join(' | '));
 
       fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd })
         .then(function (r) { return r.json().then(function (j) { return r.ok && j.success; }); })
@@ -197,7 +203,7 @@
     if (q.get('name')) F.name.value = q.get('name');
     if (q.get('address')) F.address.value = q.get('address');
     if (q.get('plan') && state.services.indexOf('Windows') < 0) state.services.push('Windows');
-    go(1, false);
+    go(root.getAttribute('data-skip') === '1' && state.services.length ? 2 : 1, false);
   }
 
   function init() {
