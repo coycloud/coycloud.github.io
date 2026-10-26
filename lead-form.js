@@ -181,6 +181,7 @@
           root.classList.add('sent');
           root.scrollIntoView({ behavior: 'smooth', block: 'start' });
           if (window.coyConversion) window.coyConversion('quoteLead');
+          if (typeof window.fbq === 'function') window.fbq('track', 'Lead', { content_name: state.services.join(', ') });
           track('generate_lead', { services: state.services.join(', ') });
         })
         .catch(function () {
