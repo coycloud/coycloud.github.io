@@ -1,15 +1,13 @@
 /* Coy Exterior Cleaning — multi-step ("breadcrumb") lead form.
    Mount with: <div data-lead-form data-service="Windows" data-city="Palo Alto"></div>
    Optional:   data-details="1" adds an "anything else?" box on the last step.
-               data-skip="1" opens on step 2 when data-service is set (service already chosen).
-   Ad tracking (utm_* and gclid in the page URL) is added to every lead automatically.
    Leads are emailed through Web3Forms (same key as before). */
 (function () {
   'use strict';
 
   var WEB3FORMS_KEY = '62897e4a-224e-4a36-a005-62fe6b1bacce';
-  var PHONE_TEL = '7739974886';
-  var PHONE_TXT = '(773) 997-4886';
+  var PHONE_TEL = '6502672936';
+  var PHONE_TXT = '(650) 267-2936';
 
   var ICONS = {
     Windows: '<rect x="3" y="3" width="18" height="18" rx="1.5"/><path d="M12 3v18M3 12h18"/>',
@@ -17,6 +15,7 @@
     'Pressure Washing': '<path d="M3 20h18"/><path d="M6 16l3-9h3"/><path d="M12 7h4l2 3"/><path d="M14 12l-1 3M17 12l1 3M20 11l2 2"/>',
     'Siding / Soft Wash': '<path d="M3 21V10l9-7 9 7v11z"/><path d="M3 14h18M3 17.5h18"/>',
     'Roof Cleaning': '<path d="M2 13l10-8 10 8"/><path d="M5 11v9h14v-9"/><path d="M10 20v-5h4v5"/>',
+    'Holiday Lighting': '<path d="M2 5c5 4 15 4 20 0"/><path d="M6 7.5v2M12 8.5v2M18 7.5v2"/><path d="M5 9.5h2l-.3 3h-1.4zM11 10.5h2l-.3 3h-1.4zM17 9.5h2l-.3 3h-1.4z"/>',
     Other: '<circle cx="12" cy="12" r="9"/><path d="M8 12h.01M12 12h.01M16 12h.01"/>'
   };
   var SERVICES = Object.keys(ICONS);
@@ -42,7 +41,7 @@
       '<div class="lf-top"><span class="lf-count" aria-live="polite"></span><button type="button" class="lf-back" hidden>← Back</button></div>' +
       '<div class="lf-bar" aria-hidden="true">' + '<span></span>'.repeat(TOTAL) + '</div>' +
 
-      '<fieldset class="lf-step" data-step="1"><legend class="lf-q" tabindex="-1">What can we clean for you?</legend>' +
+      '<fieldset class="lf-step" data-step="1"><legend class="lf-q" tabindex="-1">What can we help with?</legend>' +
       '<p class="lf-sub">Pick all that apply.</p><div class="lf-tiles">' +
       SERVICES.map(function (s) {
         return '<button type="button" class="lf-tile" data-svc="' + esc(s) + '" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true">' + ICONS[s] + '</svg>' + esc(s) + '</button>';
@@ -167,11 +166,6 @@
       fd.append('stories', state.stories);
       if (F.details && F.details.value.trim()) fd.append('details', F.details.value.trim());
       fd.append('page', location.pathname.split('/').pop() || 'index.html');
-      var ad = new URLSearchParams(location.search), adParts = [];
-      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'].forEach(function (k) {
-        var v = ad.get(k); if (v) { fd.append(k, v.slice(0, 200)); adParts.push(k + '=' + v.slice(0, 80)); }
-      });
-      if (adParts.length) fd.append('ad_source', adParts.join(' | '));
 
       fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd })
         .then(function (r) { return r.json().then(function (j) { return r.ok && j.success; }); })
@@ -181,7 +175,6 @@
           root.classList.add('sent');
           root.scrollIntoView({ behavior: 'smooth', block: 'start' });
           if (window.coyConversion) window.coyConversion('quoteLead');
-          if (typeof window.fbq === 'function') window.fbq('track', 'Lead', { content_name: state.services.join(', ') });
           track('generate_lead', { services: state.services.join(', ') });
         })
         .catch(function () {
@@ -204,7 +197,7 @@
     if (q.get('name')) F.name.value = q.get('name');
     if (q.get('address')) F.address.value = q.get('address');
     if (q.get('plan') && state.services.indexOf('Windows') < 0) state.services.push('Windows');
-    go(root.getAttribute('data-skip') === '1' && state.services.length ? 2 : 1, false);
+    go(1, false);
   }
 
   function init() {
