@@ -33,22 +33,22 @@
 <meta name="robots" content="index, follow" />
 <meta name="geo.region" content="US-CA" />
 <meta name="geo.placename" content="San Francisco Bay Area" />
-<link rel="canonical" href="https://coy-cloud.com/" />
+<link rel="canonical" href="https://www.coyexteriorcleaning.com/" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Coy Exterior Cleaning" />
 <meta property="og:title" content="Coy Exterior Cleaning | Window & Pressure Washing in the Bay Area" />
 <meta property="og:description" content="Professional window cleaning, pressure washing, soft washing and gutter cleaning for homes across San Francisco, San Jose, and the Peninsula. 4.9 stars on Google." />
-<meta property="og:url" content="https://coy-cloud.com/" />
-<meta property="og:image" content="https://coy-cloud.com/hero.jpg" />
+<meta property="og:url" content="https://www.coyexteriorcleaning.com/" />
+<meta property="og:image" content="https://www.coyexteriorcleaning.com/hero.jpg" />
 <meta property="og:locale" content="en_US" />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Coy Exterior Cleaning | Bay Area Window & Pressure Washing" />
 <meta name="twitter:description" content="Professional window cleaning, pressure washing, soft washing and gutter cleaning serving San Francisco, San Jose, and the Peninsula." />
-<meta name="twitter:image" content="https://coy-cloud.com/hero.jpg" />
+<meta name="twitter:image" content="https://www.coyexteriorcleaning.com/hero.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,19 +58,19 @@
 {
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
-  "@id": "https://coy-cloud.com/#business",
+  "@id": "https://www.coyexteriorcleaning.com/#business",
   "name": "Coy Exterior Cleaning",
   "alternateName": "Coy Window Cleaning",
   "description": "Coy Exterior Cleaning is a residential window cleaning company serving the San Francisco Bay Area, including San Francisco, the Peninsula, and San Jose / South Bay. Services include interior and exterior window cleaning, screen cleaning, pressure washing, soft washing, and gutter cleaning. Rated 4.9 stars on Google.",
   "slogan": "Bay Area exterior cleaning, done right.",
-  "logo": "https://coy-cloud.com/logo.png",
-  "image": "https://coy-cloud.com/hero.jpg",
+  "logo": "https://www.coyexteriorcleaning.com/logo.png",
+  "image": "https://www.coyexteriorcleaning.com/hero.jpg",
   "address": { "@type": "PostalAddress", "addressRegion": "CA", "addressCountry": "US" },
   "knowsAbout": ["Window cleaning", "Residential window washing", "Screen cleaning", "Pressure washing", "Soft washing", "Gutter cleaning", "Exterior house cleaning"],
-  "contactPoint": { "@type": "ContactPoint", "telephone": "+1-650-267-2936", "email": "contact.coycloud@gmail.com", "contactType": "customer service", "areaServed": "US-CA", "availableLanguage": "English" },
-  "telephone": "+1-650-267-2936",
+  "contactPoint": { "@type": "ContactPoint", "telephone": "+1-773-997-4886", "email": "contact.coycloud@gmail.com", "contactType": "customer service", "areaServed": "US-CA", "availableLanguage": "English" },
+  "telephone": "+1-773-997-4886",
   "email": "contact.coycloud@gmail.com",
-  "url": "https://coy-cloud.com/",
+  "url": "https://www.coyexteriorcleaning.com/",
   "priceRange": "$$",
   "sameAs": ["https://g.page/r/CWURUqnsM_TvEAI/review"],
   "areaServed": [
@@ -128,7 +128,7 @@
     {
       "@type": "Question",
       "name": "What happens if it rains right after you clean?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Clean glass shrugs off normal rain just fine — water beads and runs without leaving the streaks dirty glass would. If a storm somehow leaves visible spotting within 7 days of your service, give us a call and we'll come back to make it right." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Clean glass shrugs off normal rain just fine — water beads and runs without leaving the streaks dirty glass would. If a storm somehow leaves visible spotting within a few days of your service, give us a call and we'll come back to make it right." }
     },
     {
       "@type": "Question",
@@ -295,6 +295,29 @@
   @keyframes slowZoom {
     from { transform: scale(1.05); }
     to { transform: scale(1.15); }
+  }
+
+  .hero-video-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 1.8s ease;
+    pointer-events: none;
+  }
+  .hero-video-wrap.active { opacity: 1; }
+  .hero-video-wrap video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero-video-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(90deg, rgba(30, 79, 78, 0.75) 0%, rgba(30, 79, 78, 0.55) 30%, rgba(30, 79, 78, 0.15) 60%, rgba(30, 79, 78, 0.05) 100%);
   }
 
   .hero-content {
@@ -520,27 +543,6 @@
   }
   .submit-btn .arrow { transition: transform 0.3s ease; }
   .submit-btn:hover .arrow { transform: translateX(4px); }
-
-  /* ====== VIDEO ====== */
-  .video-section {
-    padding: 100px 48px;
-    background: var(--cream);
-  }
-  .video-wrap {
-    max-width: 900px;
-    margin: 0 auto;
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 24px 60px rgba(30, 79, 78, 0.15);
-    border: 1px solid rgba(205, 216, 212, 0.5);
-    background: #000;
-  }
-  .video-wrap video {
-    width: 100%;
-    display: block;
-    aspect-ratio: 16 / 9;
-    background: #000;
-  }
 
   /* ====== AREAS SERVED ====== */
   .areas {
@@ -1215,7 +1217,6 @@
     .hero { padding-top: 130px; padding-bottom: 60px; min-height: 680px; }
     .hero-content { padding: 0 24px; }
     .services, .reviews, .faq, .areas { padding: 90px 24px; }
-    .video-section { padding: 80px 24px; }
     .quote-embed { padding: 80px 24px 90px; }
     .quote-form { padding: 32px 24px; }
     .form-row { grid-template-columns: 1fr; gap: 18px; }
@@ -1329,7 +1330,6 @@
     .services-grid { grid-template-columns: 1fr; }
     .review-card { flex-basis: 82vw; width: 82vw; }
     .services, .reviews, .faq, .areas { padding: 70px 18px; }
-    .video-section { padding: 60px 16px; }
     .quote-embed { padding: 60px 16px 70px; }
     .quote-form { padding: 28px 20px; }
     .quote-embed .section-header { margin-bottom: 50px; }
@@ -1398,6 +1398,11 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
+  <div class="hero-video-wrap" id="hero-video-wrap">
+    <video id="hero-video" muted loop playsinline preload="none" poster="coy-video-poster.jpg">
+      <source src="coy-promo.mp4" type="video/mp4" />
+    </video>
+  </div>
   <div class="hero-content">
     <a class="hero-rating" href="https://g.page/r/CWURUqnsM_TvEAI/review" target="_blank" rel="noopener">
       <span class="stars">★★★★★</span>
@@ -1523,20 +1528,6 @@
   </div>
   <div class="plans"><div class="plan fade-up"><div class="plan-name">Monthly</div><div class="plan-amt">$150 OFF</div><div class="plan-per">per cleaning</div><ul class="plan-perks"><li>7 Day Rain Guarantee</li><li>FREE Hard Water Removal</li></ul><a class="plan-cta" href="quote.html?plan=Monthly">Get your quote</a></div><div class="plan fade-up"><div class="plan-name">Quarterly</div><div class="plan-amt">$100 OFF</div><div class="plan-per">per cleaning</div><ul class="plan-perks"><li>7 Day Rain Guarantee</li><li>FREE Hard Water Removal</li></ul><a class="plan-cta" href="quote.html?plan=Quarterly">Get your quote</a></div><div class="plan fade-up"><div class="plan-name">Biannual</div><div class="plan-amt">$50 OFF</div><div class="plan-per">per cleaning</div><ul class="plan-perks"><li class="no"><span class="sr">Not included: </span>7 Day Rain Guarantee</li><li class="no"><span class="sr">Not included: </span>FREE Hard Water Removal</li></ul><a class="plan-cta" href="quote.html?plan=Biannual">Get your quote</a></div></div>
   <p class="plans-note">Discounts apply to recurring window cleaning plans. Ask us for details when you request your quote.</p>
-</section>
-
-<!-- VIDEO -->
-<section class="video-section" id="video">
-  <div class="section-header fade-up">
-    <span class="section-eyebrow">See us at work</span>
-    <h2>Watch the <em>Coy</em> difference.</h2>
-    <p>A quick look at how carefully we treat every window, sill, and surface.</p>
-  </div>
-  <div class="video-wrap fade-up">
-    <video autoplay muted loop playsinline preload="auto" poster="coy-video-poster.jpg" aria-label="Coy Exterior Cleaning crew cleaning windows on a Lincoln Park building">
-      <source src="coy-promo-clip.mp4" type="video/mp4" />
-    </video>
-  </div>
 </section>
 
 <!-- AREAS SERVED -->
@@ -1692,6 +1683,18 @@
 
       <div class="review-card fade-up">
         <div class="review-stars">★ ★ ★ ★ ★</div>
+        <p class="review-text">"Best window cleaner in the Chicagoland area by far. You can tell they take pride in their work."</p>
+        <div class="review-author">
+          <div class="review-avatar">RD</div>
+          <div class="review-info">
+            <div class="name">Rein D.</div>
+            <div class="date">2 weeks ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fade-up">
+        <div class="review-stars">★ ★ ★ ★ ★</div>
         <p class="review-text">"Worker was very fast, efficient and respectful cleaning my windows. 10/10 would recommend again."</p>
         <div class="review-author">
           <div class="review-avatar">JR</div>
@@ -1766,7 +1769,7 @@
 
       <details class="faq-item fade-up">
         <summary><span class="faq-num">04</span><span class="faq-q">What happens if it rains right after you clean?</span><span class="faq-icon"></span></summary>
-        <div class="faq-a">Clean glass shrugs off normal rain just fine — water beads and runs without leaving the streaks dirty glass would. If a storm somehow leaves visible spotting within 7 days of your service, give us a call and we'll come back to make it right.</div>
+        <div class="faq-a">Clean glass shrugs off normal rain just fine — water beads and runs without leaving the streaks dirty glass would. If a storm somehow leaves visible spotting within a few days of your service, give us a call and we'll come back to make it right.</div>
       </details>
 
       <details class="faq-item fade-up">
@@ -1796,9 +1799,8 @@
     <a href="window-cleaning.html">Window Cleaning</a>
     <a href="pressure-washing.html">Pressure Washing</a>
     <a href="gutter-cleaning.html">Gutter Cleaning</a>
-    <a href="tel:6502672936">Call (650) 267-2936</a>
+    <a href="tel:7739974886">Call (773) 997-4886</a>
     <a href="mailto:contact.coycloud@gmail.com">contact.coycloud@gmail.com</a>
-    <a href="trust.html">Licensing &amp; Insurance</a>
   </div>
   <p>© 2026 Coy Exterior Cleaning. All rights reserved.</p>
 </footer>
@@ -1810,6 +1812,28 @@
     if (window.scrollY > 40) bar.classList.add('scrolled');
     else bar.classList.remove('scrolled');
   });
+
+  // Hero background → promo video, after 15s of viewing the site
+  (function () {
+    const wrap = document.getElementById('hero-video-wrap');
+    const vid = document.getElementById('hero-video');
+    if (!wrap || !vid) return;
+    setTimeout(() => {
+      // Skip gracefully if the visitor already left the page
+      if (document.hidden) {
+        document.addEventListener('visibilitychange', function onShow() {
+          if (!document.hidden) {
+            document.removeEventListener('visibilitychange', onShow);
+            vid.play().catch(() => {});
+            wrap.classList.add('active');
+          }
+        });
+        return;
+      }
+      vid.play().catch(() => {}); // muted autoplay is allowed by browsers
+      wrap.classList.add('active');
+    }, 15000);
+  })();
 
   // Fade-in on scroll
   const fadeEls = document.querySelectorAll('.fade-up');
@@ -1828,7 +1852,7 @@
   const isMobile = /Android|iPhone|iPad|iPod|Mobile|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
                    || (window.matchMedia && window.matchMedia('(max-width: 768px)').matches);
   if (callLink && isMobile) {
-    callLink.setAttribute('href', 'tel:6502672936');
+    callLink.setAttribute('href', 'tel:7739974886');
   }
 
   // Reviews carousel arrow controls
@@ -1883,14 +1907,14 @@
         hamburger.setAttribute('aria-expanded', 'false');
         // Also set tel: on the mobile menu Call Us link
         if (a.getAttribute('href') === '#contact' && isMobile) {
-          a.setAttribute('href', 'tel:6502672936');
+          a.setAttribute('href', 'tel:7739974886');
         }
       });
     });
     // Set tel on mobile menu Call Us link upfront if mobile
     if (isMobile) {
       const mobileCallLink = mobileMenu.querySelector('a[href="#contact"]');
-      if (mobileCallLink) mobileCallLink.setAttribute('href', 'tel:6502672936');
+      if (mobileCallLink) mobileCallLink.setAttribute('href', 'tel:7739974886');
     }
   }
 </script>
