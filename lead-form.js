@@ -15,7 +15,6 @@
     'Pressure Washing': '<path d="M3 20h18"/><path d="M6 16l3-9h3"/><path d="M12 7h4l2 3"/><path d="M14 12l-1 3M17 12l1 3M20 11l2 2"/>',
     'Siding / Soft Wash': '<path d="M3 21V10l9-7 9 7v11z"/><path d="M3 14h18M3 17.5h18"/>',
     'Roof Cleaning': '<path d="M2 13l10-8 10 8"/><path d="M5 11v9h14v-9"/><path d="M10 20v-5h4v5"/>',
-    'Holiday Lighting': '<path d="M2 5c5 4 15 4 20 0"/><path d="M6 7.5v2M12 8.5v2M18 7.5v2"/><path d="M5 9.5h2l-.3 3h-1.4zM11 10.5h2l-.3 3h-1.4zM17 9.5h2l-.3 3h-1.4z"/>',
     Other: '<circle cx="12" cy="12" r="9"/><path d="M8 12h.01M12 12h.01M16 12h.01"/>'
   };
   var SERVICES = Object.keys(ICONS);
@@ -41,7 +40,7 @@
       '<div class="lf-top"><span class="lf-count" aria-live="polite"></span><button type="button" class="lf-back" hidden>← Back</button></div>' +
       '<div class="lf-bar" aria-hidden="true">' + '<span></span>'.repeat(TOTAL) + '</div>' +
 
-      '<fieldset class="lf-step" data-step="1"><legend class="lf-q" tabindex="-1">What can we help with?</legend>' +
+      '<fieldset class="lf-step" data-step="1"><legend class="lf-q" tabindex="-1">What can we clean for you?</legend>' +
       '<p class="lf-sub">Pick all that apply.</p><div class="lf-tiles">' +
       SERVICES.map(function (s) {
         return '<button type="button" class="lf-tile" data-svc="' + esc(s) + '" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true">' + ICONS[s] + '</svg>' + esc(s) + '</button>';
